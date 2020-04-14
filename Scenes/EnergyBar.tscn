@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Interface/lifebar_bg.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Interface/lifebar_fill.png" type="Texture" id=3]
+
+[node name="Bar" type="HBoxContainer"]
+anchor_left = -0.421
+anchor_bottom = 0.118
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 64 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_right = 396.0
+margin_bottom = 82.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
