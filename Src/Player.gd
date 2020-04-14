@@ -1,16 +1,22 @@
 extends KinematicBody2D
 
+#CONSTANTES
 const UP = Vector2(0,-1)
 const MAX_SPEED_INICIAL = 160
 const ACCELERATION = 50
 const JUMP = 350
 const GRAVITY = 10
+const DAMAGE_INICIAL = 50
+const ARMOR_INICIAL = 0
 const SHOT = preload("res://Scenes/Bullet.tscn")
 const HP_INICIAL = 100
-const POWER_VEL = 1
-const POWER_SHOOT = 2
+const POWER_INV = 1
+const POWER_ARMOR = 2
+const POWER_SHOOT = 3
+const POWER_VEL = 4
 
 
+#VARIABLES
 var motion = Vector2(0,0)
 var is_atacking = false
 var is_atacking_run = false
@@ -18,13 +24,15 @@ var rigth_signal = false
 var left_signal = false
 var jump_signal = false
 var shoot_signal = false
-var hp = HP_INICIAL
 var is_dead = false
+var hp = HP_INICIAL
+var armor = ARMOR_INICIAL
 var max_speed = MAX_SPEED_INICIAL
+var damage = DAMAGE_INICIAL
 var current_power_up
-
 onready var Timer2 = $Timer2
 
+#SIGNALS
 signal moved_rigth
 signal moved_left
 signal moved_jump
@@ -33,9 +41,9 @@ signal hp_change(health)
 
 
 func _ready():	
-	print("HP: ", hp)
+	pass
 
-
+#MOVEMENT
 func _physics_process(delta):	
 	if is_dead == false:
 		$CollisionShape2D.disabled = false
@@ -140,7 +148,19 @@ func picked_power_up_invulneravility():
 	$Timer2.start(5)
 	$Sprite.play("Inv")	
 
+func picked_power_up_armor():
+	armor = ARMOR_INICIAL * 2
+	
+func picked_power_up_damage():
+	damage = DAMAGE_INICIAL * 2
+	
 func _on_TimerPowerUps_timeout():
 	match current_power_up:
-		POWER_VEL: 
+		#POWER_INV: 
+			#Nothing
+		POWER_ARMOR:
+			armor = ARMOR_INICIAL
+		POWER_SHOOT:
+			damage = DAMAGE_INICIAL	
+		POWER_VEL:
 			max_speed = MAX_SPEED_INICIAL
