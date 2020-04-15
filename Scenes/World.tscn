@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Src/J.gd" type="Script" id=14]
 [ext_resource path="res://Src/W.gd" type="Script" id=15]
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/PowerUp.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -181,8 +182,10 @@ Tipo = 3
 
 [node name="PowerUp4" parent="." instance=ExtResource( 16 )]
 position = Vector2( 845.017, 299.287 )
+script = ExtResource( 17 )
 Tipo = 4
 [connection signal="moved_jump" from="Player" to="Keys/W" method="_on_Player_moved_jump"]
 [connection signal="moved_left" from="Player" to="Keys/A" method="_on_Player_moved_left"]
 [connection signal="moved_rigth" from="Player" to="Keys/D" method="_on_Player_moved_rigth"]
 [connection signal="moved_shoot" from="Player" to="Keys/J" method="_on_Player_moved_shoot"]
+[connection signal="item_vacuna" from="PowerUp" to="Player" method="_on_PowerUp_item_vacuna"]

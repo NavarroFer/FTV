@@ -12,12 +12,6 @@ const BARBIJO = 2
 const JABON = 3
 const BOTAS = 4
 
-signal item_vacuna
-signal item_barbijo
-signal item_jabon
-signal item_botas
-
-
 func _ready():	
 	match Tipo:
 		VACUNA:
@@ -35,15 +29,11 @@ func _on_PowerUpVEL_body_entered(body):
 		match Tipo:
 			VACUNA:
 				body.picked_power_up_invulneravility()
-				emit_signal("item_vacuna")
 			BARBIJO:
 				body.picked_power_up_armor()
-				emit_signal("item_barbijo")
 			JABON:
 				body.picked_power_up_damage()
-				emit_signal("item_jabon")
 			BOTAS:
 				body.picked_power_up_velocity()
-				emit_signal("item_botas")
 		
 		queue_free()
