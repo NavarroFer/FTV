@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/WorldComplete.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/EnemyA.tscn" type="PackedScene" id=6]
 
-
 [node name="World3" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -21,20 +20,29 @@ tile_data = PoolIntArray( -196615, 1610612740, 0, -196614, 1610612740, 0, -19661
 
 [node name="EnemyA" parent="." instance=ExtResource( 6 )]
 position = Vector2( 434.816, 223.002 )
+gravity = 10
+speed = 100
 
 [node name="EnemyC" parent="." instance=ExtResource( 4 )]
 position = Vector2( 387.553, 90.224 )
+speed = 80
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="EnemyA2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 154.712, 116.034 )
+gravity = 10
+speed = 60
 
 [node name="EnemyC2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 771.8, 59.775 )
+speed = 60
 
 [node name="EnemyA3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1022.25, 146.718 )
+gravity = 10
+speed = 80
 
 [node name="EnemyC3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1395.92, 219.761 )

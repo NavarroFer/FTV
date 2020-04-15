@@ -31,6 +31,7 @@ __meta__ = {
 }
 
 [node name="Picked" type="TextureRect" parent="."]
+visible = false
 margin_left = 84.9923
 margin_top = 2.00002
 margin_right = 164.992
@@ -61,7 +62,7 @@ margin_right = 69.814
 margin_bottom = 53.5565
 rect_scale = Vector2( 0.8, 0.8 )
 theme = SubResource( 2 )
-text = "10"
+text = "0"
 align = 1
 valign = 1
 __meta__ = {

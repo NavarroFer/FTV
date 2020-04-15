@@ -15,7 +15,6 @@ const POWER_ARMOR = 2
 const POWER_SHOOT = 3
 const POWER_VEL = 4
 
-
 #VARIABLES
 var motion = Vector2(0,0)
 var is_atacking = false
@@ -30,6 +29,8 @@ var armor = ARMOR_INICIAL
 var max_speed = MAX_SPEED_INICIAL
 var damage = DAMAGE_INICIAL
 var current_power_up
+var have_item_active = false
+var have_item = false
 onready var Timer2 = $Timer2
 
 #SIGNALS
@@ -140,7 +141,7 @@ func _on_Timer_timeout():
 
 #POWER UPS
 func picked_power_up_velocity():
-	$TimerPowerUps.start()
+	$TimerPowerUps.start(15)
 	max_speed = MAX_SPEED_INICIAL*1.5 
 	current_power_up = POWER_VEL
 
@@ -149,9 +150,11 @@ func picked_power_up_invulneravility():
 	$Sprite.play("Inv")	
 
 func picked_power_up_armor():
+	$TimerPowerUps.start(15)
 	armor = ARMOR_INICIAL * 2
 	
 func picked_power_up_damage():
+	$TimerPowerUps.start(15)
 	damage = DAMAGE_INICIAL * 2
 	
 func _on_TimerPowerUps_timeout():
@@ -164,3 +167,7 @@ func _on_TimerPowerUps_timeout():
 			damage = DAMAGE_INICIAL	
 		POWER_VEL:
 			max_speed = MAX_SPEED_INICIAL
+
+
+	
+	

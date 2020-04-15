@@ -35,17 +35,17 @@ func _physics_process(delta):
 		vel.y += gravity
 		vel = move_and_slide(vel,FLOOR)
 			
-	if is_on_wall():
-		direction *= -1
-		$RayCast2D.position.x *= -1
-	if $RayCast2D.is_colliding() == false:
-		direction = direction * -1
-		$RayCast2D.position.x *= -1
-	if get_slide_count() > 0:
-		for i in range(get_slide_count()):
-			if "Player" in get_slide_collision(i).collider.name:							
-#				get_slide_collision(i).collider.me_toco_Enemy($AnimatedSprite.flip_h)				
-				get_slide_collision(i).collider.hp_decrease()
+		if is_on_wall():
+			direction *= -1
+			$RayCast2D.position.x *= -1
+		if $RayCast2D.is_colliding() == false:
+			direction = direction * -1
+			$RayCast2D.position.x *= -1
+		if get_slide_count() > 0:
+			for i in range(get_slide_count()):
+				if "Player" in get_slide_collision(i).collider.name:							
+	#				get_slide_collision(i).collider.me_toco_Enemy($AnimatedSprite.flip_h)				
+					get_slide_collision(i).collider.hp_decrease()
 
 func _on_Timer_timeout():
 	queue_free()

@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/EnergyBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/ContainerItems.tscn" type="PackedScene" id=2]
 
 [node name="Interface" type="Control"]
@@ -9,14 +8,6 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Bar" parent="." instance=ExtResource( 1 )]
-anchor_left = 0.0
-anchor_bottom = 0.0
-margin_left = 9.0
-margin_top = 12.0
-margin_right = 405.0
-margin_bottom = 94.48
 
 [node name="TimerItem" parent="." instance=ExtResource( 2 )]
 anchor_left = 1.0
