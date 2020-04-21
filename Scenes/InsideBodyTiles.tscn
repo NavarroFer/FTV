@@ -6,7 +6,7 @@
 extents = Vector2( 16, 16 )
 
 [sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -3.8147e-006, -16 )
+a = Vector2( -3.8147e-06, -16 )
 b = Vector2( 0, 16 )
 
 [sub_resource type="SegmentShape2D" id=3]
@@ -31,7 +31,6 @@ custom_solver_bias = 0.33
 [node name="InsideBodyTiles" type="Node"]
 
 [node name="0" type="Sprite" parent="."]
-editor/display_folded = true
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
@@ -45,7 +44,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="1" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 0 )
 texture = ExtResource( 1 )
 centered = false
@@ -60,7 +58,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="2" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 0 )
 texture = ExtResource( 1 )
 centered = false
@@ -75,7 +72,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="3" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 64 )
 texture = ExtResource( 1 )
 centered = false
@@ -90,7 +86,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="4" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 64 )
 texture = ExtResource( 1 )
 centered = false
@@ -105,7 +100,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="5" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 64 )
 texture = ExtResource( 1 )
 centered = false
@@ -120,7 +114,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="6" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 128 )
 texture = ExtResource( 1 )
 centered = false
@@ -135,7 +128,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="7" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 128 )
 texture = ExtResource( 1 )
 centered = false
@@ -150,7 +142,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="8" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 128 )
 texture = ExtResource( 1 )
 centered = false
@@ -165,7 +156,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="9" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 192 )
 texture = ExtResource( 1 )
 centered = false
@@ -180,7 +170,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="10" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 192 )
 texture = ExtResource( 1 )
 centered = false
@@ -195,7 +184,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="11" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 192 )
 texture = ExtResource( 1 )
 centered = false
@@ -266,7 +254,6 @@ scale = Vector2( 0.6, 1.1 )
 shape = SubResource( 4 )
 
 [node name="14" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 256 )
 texture = ExtResource( 1 )
 centered = false
@@ -297,7 +284,6 @@ scale = Vector2( 0.61, 3.2 )
 shape = SubResource( 5 )
 
 [node name="15" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 192, 256 )
 texture = ExtResource( 1 )
 centered = false
@@ -305,7 +291,6 @@ region_enabled = true
 region_rect = Rect2( 192, 32, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="15"]
-editor/display_folded = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="15/StaticBody2D"]
 position = Vector2( 15.51, 0 )
@@ -325,7 +310,6 @@ scale = Vector2( 0.67, 0.54 )
 shape = SubResource( 3 )
 
 [node name="16" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 320 )
 texture = ExtResource( 1 )
 centered = false
@@ -358,7 +342,6 @@ scale = Vector2( 0.61, 1.65 )
 shape = SubResource( 5 )
 
 [node name="17" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 0, 384 )
 texture = ExtResource( 1 )
 centered = false
@@ -385,7 +368,6 @@ scale = Vector2( 0.58, 3.42 )
 shape = SubResource( 6 )
 
 [node name="18" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 320 )
 texture = ExtResource( 1 )
 centered = false
@@ -393,7 +375,6 @@ region_enabled = true
 region_rect = Rect2( 128, 64, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="18"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="18/StaticBody2D"]
 position = Vector2( 0.32, 0.21 )
@@ -419,7 +400,6 @@ scale = Vector2( 0.61, 3.45 )
 shape = SubResource( 7 )
 
 [node name="19" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 64, 384 )
 texture = ExtResource( 1 )
 centered = false
@@ -446,7 +426,6 @@ scale = Vector2( 0.61, 3.46 )
 shape = SubResource( 8 )
 
 [node name="20" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 320 )
 texture = ExtResource( 1 )
 centered = false
@@ -461,7 +440,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="21" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 128, 384 )
 texture = ExtResource( 1 )
 centered = false
@@ -469,7 +447,6 @@ region_enabled = true
 region_rect = Rect2( 160, 96, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="21"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="21/StaticBody2D"]
 position = Vector2( 0.65, 0.29 )
@@ -489,7 +466,6 @@ scale = Vector2( 0.59, 4.37 )
 shape = SubResource( 9 )
 
 [node name="22" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 192, 320 )
 texture = ExtResource( 1 )
 centered = false
@@ -504,7 +480,6 @@ position = Vector2( 16, 16 )
 shape = SubResource( 1 )
 
 [node name="25" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 192, 384.32 )
 texture = ExtResource( 1 )
 centered = false
@@ -512,7 +487,6 @@ region_enabled = true
 region_rect = Rect2( 192, 96, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="25"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="25/StaticBody2D"]
 position = Vector2( 0.88, 0.25 )
@@ -532,7 +506,6 @@ scale = Vector2( 0.6, 4.29 )
 shape = SubResource( 10 )
 
 [node name="26" type="Sprite" parent="."]
-editor/display_folded = true
 position = Vector2( 192, 192 )
 texture = ExtResource( 1 )
 centered = false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ExitFocus.png-40686c441e3f3f8b3ca1318848bfbe24.stex"
+path="res://.import/startFocus.png-d59f2332f336715c675b1d7f353383da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Background/ExitFocus.png"
-dest_files=[ "res://.import/ExitFocus.png-40686c441e3f3f8b3ca1318848bfbe24.stex" ]
+source_file="res://Sprites/Background/startFocus.png"
+dest_files=[ "res://.import/startFocus.png-d59f2332f336715c675b1d7f353383da.stex" ]
 
 [params]
 
