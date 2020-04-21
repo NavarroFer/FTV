@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (int) var gravity
 export (int) var speed
+export (int) var damage
 const FLOOR = Vector2(0,-1)
 
 var vel = Vector2()
@@ -45,10 +46,12 @@ func _physics_process(delta):
 			for i in range(get_slide_count()):
 				if "Player" in get_slide_collision(i).collider.name:							
 	#				get_slide_collision(i).collider.me_toco_Enemy($AnimatedSprite.flip_h)				
-					get_slide_collision(i).collider.hp_decrease()
+					get_slide_collision(i).collider.hp_decrease(damage)
 
 func _on_Timer_timeout():
 	queue_free()
 
+func getDamage():
+	return damage
 
 
