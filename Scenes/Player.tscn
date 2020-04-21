@@ -1,121 +1,12 @@
-[gd_scene load_steps=80 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Src/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Player/Jump (1).png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Player/Jump (2).png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Player/Jump (3).png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Player/Jump (4).png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Player/Jump (5).png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Player/Jump (6).png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Player/RunShoot (1).png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Player/RunShoot (2).png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Player/RunShoot (3).png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Player/RunShoot (4).png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Player/RunShoot (5).png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Player/RunShoot (6).png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Player/RunShoot (7).png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/RunShoot (8).png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/RunShoot (9).png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/Shoot (1).png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/Shoot (2).png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/Shoot (3).png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/Shoot (4).png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/Idle (1).png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/Idle (2).png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Player/Idle (3).png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Player/Idle (4).png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Player/Idle (5).png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Player/Idle (6).png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Player/Idle (7).png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Player/Idle (10).png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Player/Idle (9).png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Player/Idle (8).png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Player/Jump (7).png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Player/Jump (8).png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Player/Jump (9).png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Player/Jump (10).png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Player/Slide (1).png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Player/Slide (2).png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Player/Slide (3).png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Player/Slide (4).png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Player/Slide (5).png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Player/Slide (6).png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Player/Slide (7).png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Player/Slide (8).png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Player/Slide (9).png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Player/Slide (10).png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Player/Run (1).png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Player/Run (2).png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Player/Run (3).png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Player/Run (4).png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Player/Run (5).png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Player/Run (6).png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Player/Run (7).png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Player/Run (8).png" type="Texture" id=52]
-[ext_resource path="res://Sprites/Player/Dead (2).png" type="Texture" id=53]
-[ext_resource path="res://Sprites/Player/Dead (1).png" type="Texture" id=54]
-[ext_resource path="res://Sprites/Player/Dead (3).png" type="Texture" id=55]
-[ext_resource path="res://Sprites/Player/Dead (10).png" type="Texture" id=56]
-[ext_resource path="res://Sprites/Player/Dead (6).png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Player/Dead (8).png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Player/Dead (7).png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Player/Dead (5).png" type="Texture" id=60]
-[ext_resource path="res://Sprites/Player/Dead (9).png" type="Texture" id=61]
-[ext_resource path="res://Sprites/Player/Dead (4).png" type="Texture" id=62]
 [ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=63]
 [ext_resource path="res://Scenes/Armor.tscn" type="PackedScene" id=64]
 [ext_resource path="res://Sprites/Player/SSA.png" type="Texture" id=65]
 [ext_resource path="res://Sprites/Background/N38KaB.png" type="Texture" id=66]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "Shoot",
-"speed": 40.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "Jump",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "Fall",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
-"loop": true,
-"name": "Run",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "RunShoot",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 39 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "Inv",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
-"loop": true,
-"name": "Slide",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 62 ), ExtResource( 60 ), ExtResource( 57 ), ExtResource( 59 ), ExtResource( 58 ), ExtResource( 61 ), ExtResource( 56 ) ],
-"loop": false,
-"name": "Dead",
-"speed": 5.0
-} ]
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Dead"
 length = 0.8
 tracks/0/type = "value"
@@ -131,7 +22,7 @@ tracks/0/keys = {
 "values": [ 0, 8 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Fall"
 length = 0.7
 tracks/0/type = "value"
@@ -147,7 +38,7 @@ tracks/0/keys = {
 "values": [ 25, 30 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Fall_INV"
 length = 0.7
 tracks/0/type = "value"
@@ -175,7 +66,7 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:frame")
@@ -190,7 +81,7 @@ tracks/0/keys = {
 "values": [ 10, 18 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "Idle_INV"
 length = 2.0
 loop = true
@@ -219,7 +110,7 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "Jump"
 length = 0.6
 tracks/0/type = "value"
@@ -235,7 +126,7 @@ tracks/0/keys = {
 "values": [ 19, 24 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "Jump_INV"
 length = 0.6
 tracks/0/type = "value"
@@ -263,7 +154,7 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:frame")
@@ -278,7 +169,7 @@ tracks/0/keys = {
 "values": [ 50, 57 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 resource_name = "Run_INV"
 loop = true
 tracks/0/type = "value"
@@ -306,7 +197,7 @@ tracks/1/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 length = 0.1
 step = 0.033
 tracks/0/type = "value"
@@ -322,7 +213,7 @@ tracks/0/keys = {
 "values": [ 67, 70 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "Shoot_INV"
 length = 0.1
 step = 0.033
@@ -351,7 +242,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 14, 33.76 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -364,32 +255,24 @@ scale = Vector2( 0.121774, 0.121774 )
 texture = ExtResource( 65 )
 vframes = 9
 hframes = 9
-frame = 25
-
-[node name="Sprite" type="AnimatedSprite" parent="."]
-visible = false
-position = Vector2( 1.76, 2.56 )
-scale = Vector2( 0.126043, 0.126043 )
-frames = SubResource( 1 )
-animation = "Idle"
 
 [node name="Animacion" type="AnimationPlayer" parent="."]
-anims/Dead = SubResource( 2 )
-anims/Fall = SubResource( 3 )
-anims/Fall_INV = SubResource( 4 )
-anims/Idle = SubResource( 6 )
-anims/Idle_INV = SubResource( 7 )
-anims/Jump = SubResource( 8 )
-anims/Jump_INV = SubResource( 9 )
-anims/Run = SubResource( 10 )
-anims/Run_INV = SubResource( 11 )
-anims/Shoot = SubResource( 12 )
-anims/Shoot_INV = SubResource( 13 )
+anims/Dead = SubResource( 1 )
+anims/Fall = SubResource( 2 )
+anims/Fall_INV = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Idle_INV = SubResource( 5 )
+anims/Jump = SubResource( 6 )
+anims/Jump_INV = SubResource( 7 )
+anims/Run = SubResource( 8 )
+anims/Run_INV = SubResource( 9 )
+anims/Shoot = SubResource( 10 )
+anims/Shoot_INV = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3.93 )
 scale = Vector2( 1.09, 0.86 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 110.14, -61.22 )
@@ -422,7 +305,6 @@ wait_time = 10.0
 [node name="Health" parent="." instance=ExtResource( 63 )]
 
 [node name="Armor" parent="." instance=ExtResource( 64 )]
-[connection signal="animation_finished" from="Sprite" to="." method="_on_Sprite_animation_finished"]
 [connection signal="animation_finished" from="Animacion" to="." method="_on_Animacion_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

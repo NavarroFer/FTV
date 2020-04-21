@@ -10,10 +10,10 @@ const DAMAGE_INICIAL = 50
 const ARMOR_INICIAL = 0
 const SHOT = preload("res://Scenes/Bullet.tscn")
 const HP_INICIAL = 100
-const POWER_INV = 1
-const POWER_ARMOR = 2
-const POWER_SHOOT = 3
-const POWER_VEL = 4
+const VACUNA = 1
+const BARBIJO = 2
+const JABON = 3
+const BOTAS = 4
 
 #VARIABLES
 var motion = Vector2(0,0)
@@ -29,9 +29,9 @@ var hp = HP_INICIAL
 var armor = ARMOR_INICIAL
 var max_speed = MAX_SPEED_INICIAL
 var damage = DAMAGE_INICIAL
-var current_power_up
-var have_item_active = false
-var have_item = false
+var current_power_up = 0
+var time_power_up = 0
+var has_item_picked = false
 onready var Timer2 = $Timer2
 
 #SIGNALS
@@ -41,6 +41,8 @@ signal moved_jump
 signal moved_shoot
 signal hp_changed(new_amount)
 signal armor_change(armor)
+signal item_actived
+signal item_picked
 
 
 func _ready():	
@@ -137,6 +139,13 @@ func _physics_process(delta):
 			for i in range (get_slide_count()):
 				if "Enemy" in get_slide_collision(i).collider.name:
 					hp_decrease(get_slide_collision(i).collider.getDamage())
+	if(Input.is_action_pressed("Action") && has_item_picked == true):
+		emit_signal("item_actived",current_power_up,time_power_up)
+		active_power_up()
+		has_item_picked = false
+
+		
+		
 
 func dead():
 	is_dead = true	
@@ -170,28 +179,39 @@ func _on_Timer_timeout():
 
 
 #POWER UPS
-func picked_power_up_velocity():
-	$TimerPowerUps.start(15)
-	max_speed = MAX_SPEED_INICIAL*1.5 
-	current_power_up = POWER_VEL
+func active_power_up():
+	$TimerPowerUps.wait_time = time_power_up
+	match current_power_up:
+		VACUNA:
+			$Timer2.start()
+			inv = true
+		BARBIJO:
+			$Armor.set_current(50)
+		JABON:
+			$TimerPowerUps.start()
+			print($TimerPowerUps.time_left)
+			damage = DAMAGE_INICIAL * 2	
+		BOTAS:
+			$TimerPowerUps.start()
+			print($TimerPowerUps.time_left)
+			max_speed = MAX_SPEED_INICIAL*1.5 
+			current_power_up = BOTAS
 
-func picked_power_up_invulneravility():
-	$Timer2.start(5)
-	inv = true
-	
+func picked_power_up(Tipo, time):	
+	has_item_picked = true
+	emit_signal("item_picked",Tipo, time)
+	current_power_up = Tipo
+	time_power_up = time
+	print(current_power_up)
+			
 
-func picked_power_up_armor():	
-	$Armor.set_current(50)	
-	
-func picked_power_up_damage():
-	$TimerPowerUps.start(15)
-	damage = DAMAGE_INICIAL * 2
-	
 func _on_TimerPowerUps_timeout():
+	print("Timeout Power up" + str(current_power_up))
 	match current_power_up:		
-		POWER_SHOOT:
+		JABON:
 			damage = DAMAGE_INICIAL	
-		POWER_VEL:
+		BOTAS:
+			print("TERMINO POWER UP VEL")
 			max_speed = MAX_SPEED_INICIAL
 
 
@@ -209,8 +229,7 @@ func _on_Animacion_animation_finished(anim_name):
 	pass
 
 
-func _on_Timer2_timeout():
-	print("Termino el tiempo de inv")
+func _on_Timer2_timeout():	
 	$Animacion.play("Idle")
 	$Sprite2.visible = true
 	inv = false

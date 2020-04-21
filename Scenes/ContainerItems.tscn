@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Sprites/Interface/emeralds_icon.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Interface/bombs_icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/PowerUps/Bota.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/PowerUps/Barbijo.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Interface/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://Sprites/Interface/label_HP_bg.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Fonts/Gumela.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sprites/PowerUps/label_HP_bg.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/ContainerItems.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -20,22 +22,30 @@ Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 1 )
 Label/styles/normal = null
 
+[sub_resource type="DynamicFont" id=3]
+size = 45
+font_data = ExtResource( 4 )
+
 [node name="TimerItem" type="NinePatchRect"]
 margin_left = 508.923
 margin_top = 11.4113
 margin_right = 628.923
 margin_bottom = 45.4113
 rect_min_size = Vector2( 120, 0 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 120, 48 )
+patch_margin_left = 41
+patch_margin_top = 45
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Picked" type="TextureRect" parent="."]
-margin_left = 84.9923
-margin_top = 2.00002
-margin_right = 164.992
-margin_bottom = 82.567
+margin_left = 79.9923
+margin_top = 4.00002
+margin_right = 184.992
+margin_bottom = 103.0
 rect_min_size = Vector2( 0, -0.072 )
 rect_scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 2 )
@@ -44,10 +54,10 @@ __meta__ = {
 }
 
 [node name="Active" type="TextureRect" parent="."]
-margin_left = 51.5645
-margin_top = 3.0
-margin_right = 131.564
-margin_bottom = 83.0
+margin_left = 40.5645
+margin_top = 4.0
+margin_right = 145.565
+margin_bottom = 103.0
 rect_min_size = Vector2( 0, -0.072 )
 rect_scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 1 )
@@ -56,15 +66,19 @@ __meta__ = {
 }
 
 [node name="Seg" type="Label" parent="."]
-margin_left = -1.18597
-margin_top = -0.443527
-margin_right = 69.814
-margin_bottom = 53.5565
+margin_left = -2.18597
+margin_top = -1.44353
+margin_right = 68.814
+margin_bottom = 52.5565
 rect_scale = Vector2( 0.8, 0.8 )
 theme = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "0"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TimerPowerUp" type="Timer" parent="."]
+[connection signal="timeout" from="TimerPowerUp" to="." method="_on_TimerPowerUp_timeout"]
