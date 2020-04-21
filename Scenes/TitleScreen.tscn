@@ -3,10 +3,10 @@
 [ext_resource path="res://Src/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Background/titlea.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Background/cdc-w9KEokhajKw-unsplash.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Background/StartGame.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Background/StartFocus.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Background/Exit.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Background/ExitFocus.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Background/exit.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Background/start.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Background/startFocus.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Background/exitFocus.png" type="Texture" id=7]
 
 [node name="TitleScreen" type="Node"]
 script = ExtResource( 1 )
@@ -41,23 +41,23 @@ margin_bottom = 70.0
 texture = ExtResource( 2 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_left = 160.0
+margin_left = 197.0
 margin_top = 86.0
-margin_right = 400.0
-margin_bottom = 210.0
+margin_right = 362.0
+margin_bottom = 230.0
 size_flags_horizontal = 4
 
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_right = 240.0
-margin_bottom = 60.0
-texture_normal = ExtResource( 4 )
-texture_focused = ExtResource( 5 )
+margin_right = 165.0
+margin_bottom = 70.0
+texture_normal = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
 
 [node name="Exit" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
-margin_top = 64.0
-margin_right = 240.0
-margin_bottom = 124.0
-texture_normal = ExtResource( 6 )
+margin_top = 74.0
+margin_right = 165.0
+margin_bottom = 144.0
+texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 7 )
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/Exit" to="." method="_on_Exit_pressed"]
