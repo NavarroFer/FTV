@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
@@ -6,11 +6,15 @@
 [ext_resource path="res://Scenes/EnemyC.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/WorldComplete.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/EnemyA.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 
 [node name="World3" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 224 )
+
+[node name="HUD" parent="Player" instance=ExtResource( 7 )]
+position = Vector2( 6.12891, -11.6653 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -22,10 +26,12 @@ tile_data = PoolIntArray( -196615, 1610612740, 0, -196614, 1610612740, 0, -19661
 position = Vector2( 434.816, 223.002 )
 gravity = 10
 speed = 100
+damage = 10
 
 [node name="EnemyC" parent="." instance=ExtResource( 4 )]
 position = Vector2( 387.553, 90.224 )
 speed = 80
+damage = 20
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -34,18 +40,25 @@ visible = false
 position = Vector2( 154.712, 116.034 )
 gravity = 10
 speed = 60
+damage = 30
 
 [node name="EnemyC2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 771.8, 59.775 )
 speed = 60
+damage = 40
 
 [node name="EnemyA3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1022.25, 146.718 )
 gravity = 10
 speed = 80
+damage = 50
 
 [node name="EnemyC3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1395.92, 219.761 )
+speed = 20
+damage = 30
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1723.84, 198.638 )
+[connection signal="armor_change" from="Player" to="Player/HUD" method="_on_Player_armor_change"]
+[connection signal="hp_changed" from="Player" to="Player/HUD" method="_on_Player_hp_changed"]
