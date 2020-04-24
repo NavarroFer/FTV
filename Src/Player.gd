@@ -144,8 +144,6 @@ func _physics_process(delta):
 		active_power_up()
 		has_item_picked = false
 
-		
-		
 
 func dead():
 	is_dead = true	
@@ -155,8 +153,6 @@ func dead():
 	$Timer.start()		
 
 func hp_decrease(damage):
-	print($Armor.get_current())
-	print($Health.get_current())
 	if($Timer2.is_stopped()):		
 		if($Armor.get_current() - damage < 0):
 			$Armor.set_current(0)			
@@ -170,9 +166,7 @@ func hp_decrease(damage):
 		
 func _on_Sprite_animation_finished():
 	is_atacking = false
-	pass
 	
-
 
 func _on_Timer_timeout():
 	get_tree().reload_current_scene()
@@ -186,14 +180,15 @@ func active_power_up():
 			$Timer2.start()
 			inv = true
 		BARBIJO:
-			$Armor.set_current(50)
+			if($Armor.get_current() + 40 > 100):
+				$Armor.set_current(100)
+			else:
+				$Armor.set_current($Armor.get_current() + 40)
 		JABON:
-			$TimerPowerUps.start()
-			print($TimerPowerUps.time_left)
+			$TimerPowerUps.start()			
 			damage = DAMAGE_INICIAL * 2	
 		BOTAS:
 			$TimerPowerUps.start()
-			print($TimerPowerUps.time_left)
 			max_speed = MAX_SPEED_INICIAL*1.5 
 			current_power_up = BOTAS
 
@@ -202,32 +197,24 @@ func picked_power_up(Tipo, time):
 	emit_signal("item_picked",Tipo, time)
 	current_power_up = Tipo
 	time_power_up = time
-	print(current_power_up)
 			
 
 func _on_TimerPowerUps_timeout():
-	print("Timeout Power up" + str(current_power_up))
 	match current_power_up:		
 		JABON:
 			damage = DAMAGE_INICIAL	
 		BOTAS:
-			print("TERMINO POWER UP VEL")
 			max_speed = MAX_SPEED_INICIAL
-
 
 func _on_Health_changed(new_amount_h):
 	emit_signal("hp_changed",new_amount_h)
 
-
 func _on_Armor_changed_armor(new_amount_a):
 	emit_signal("armor_change",new_amount_a)
-
 
 func _on_Animacion_animation_finished(anim_name):
 	is_atacking = false
 	$Animacion.play("Idle")
-	pass
-
 
 func _on_Timer2_timeout():	
 	$Animacion.play("Idle")
