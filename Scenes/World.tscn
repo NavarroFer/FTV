@@ -71,7 +71,7 @@ __meta__ = {
 }
 
 [node name="WorldComplete" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4070.24, 254.098 )
+position = Vector2( 4035.27, 246.65 )
 next_world = "res://Scenes/World2.tscn"
 
 [node name="Keys" type="Node" parent="."]
@@ -153,18 +153,18 @@ __meta__ = {
 }
 
 [node name="K" type="Sprite" parent="Keys"]
-position = Vector2( 4065.05, 110 )
+position = Vector2( 4005.05, 110 )
 scale = Vector2( 1.9497, 1.9497 )
 texture = ExtResource( 8 )
 
 [node name="Label4" type="Label" parent="Keys/K"]
-margin_left = -38.9999
+margin_left = -70.7996
 margin_top = 16.7456
-margin_right = 42.0001
-margin_bottom = 51.7456
+margin_right = 67.2004
+margin_bottom = 63.7456
 custom_fonts/font = SubResource( 6 )
-text = "Action
-Button"
+text = "Action Button
+Active PowerUp"
 align = 1
 valign = 1
 __meta__ = {
@@ -183,7 +183,7 @@ __meta__ = {
 }
 
 [node name="PowerUp" parent="." instance=ExtResource( 16 )]
-position = Vector2( 2000, 290 )
+position = Vector2( 2001.02, 290 )
 Tipo = 1
 
 [node name="Label2" type="Label" parent="."]
