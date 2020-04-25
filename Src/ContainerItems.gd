@@ -13,7 +13,10 @@ func _ready():
 	$TimerPowerUp.wait_time = 1
 
 func setPicked(tipo,time):
-	time_picked = time
+	if(tipo != 2):
+		time_picked = time
+	else:
+		time_picked = 0
 	tipo_picked = tipo
 	if($TimerPowerUp.is_stopped()):
 		setSeg(time_picked)
@@ -26,19 +29,20 @@ func setPicked(tipo,time):
 	
 
 func setActive(tipo,time):
+	if(tipo_picked != 2):
+		time_left = time - 1
+		$TimerPowerUp.start()	
+	else:
+		$Active.texture = null		
 	tipo_picked = 0
 	$Picked.texture = null
-	time_left = time - 1
-	$TimerPowerUp.start()	
 	match tipo:
-		1: $Active.texture = VACUNA
-		2: $Active.texture = BARBIJO
+		1: $Active.texture = VACUNA		
 		3: $Active.texture = JABON
 		4: $Active.texture = BOTAS
 	
 func setSeg(time):
 	$Seg.text = str(time)
-
 
 
 func _on_TimerPowerUp_timeout():

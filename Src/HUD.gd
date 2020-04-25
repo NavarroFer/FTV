@@ -6,11 +6,7 @@ func _on_Player_armor_change(armor):
 
 func _on_Player_hp_changed(new_amount):
 	$HealthBar.set_value(new_amount)
-
-
-
-
-
+	
 func _on_Player_item_picked(tipo,time):
 	$TimerItem.setPicked(tipo,time)
 
