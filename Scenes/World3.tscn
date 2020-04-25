@@ -61,10 +61,13 @@ damage = 30
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1723.84, 183.638 )
+next_world = "res://Scenes/TitleScreen.tscn"
 
 [node name="PowerUp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 22.8552, 163.502 )
 Tipo = 4
 [connection signal="armor_change" from="Player" to="Player/HUD" method="_on_Player_armor_change"]
 [connection signal="hp_changed" from="Player" to="Player/HUD" method="_on_Player_hp_changed"]
+[connection signal="item_actived" from="Player" to="Player/HUD" method="_on_Player_item_actived"]
+[connection signal="item_picked" from="Player" to="Player/HUD" method="_on_Player_item_picked"]
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]
