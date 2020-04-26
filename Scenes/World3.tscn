@@ -61,7 +61,7 @@ damage = 30
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1723.84, 183.638 )
-next_world = "res://Scenes/TitleScreen.tscn"
+next_world = "res://Scenes/WorldFinal.tscn"
 
 [node name="PowerUp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 22.8552, 163.502 )

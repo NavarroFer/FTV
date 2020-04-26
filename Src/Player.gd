@@ -9,6 +9,7 @@ const GRAVITY = 10
 const DAMAGE_INICIAL = 50
 const ARMOR_INICIAL = 0
 const SHOT = preload("res://Scenes/Bullet.tscn")
+const FINAL_BG = preload("res://Sprites/Background/100334.png")
 const HP_INICIAL = 100
 const VACUNA = 1
 const BARBIJO = 2
@@ -220,3 +221,9 @@ func _on_Timer2_timeout():
 	$Animacion.play("Idle")
 	$Sprite2.visible = true
 	inv = false
+
+
+func _on_WorldFinal_WorldFinal_started():
+	$ParallaxBackground/Fondo4.texture = preload("res://Sprites/Background/BG_FinalBoss.png")
+
+	
