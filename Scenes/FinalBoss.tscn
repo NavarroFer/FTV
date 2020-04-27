@@ -1,9 +1,26 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/Enemies/FinalBoss/FinalBoss.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemies/FinalBoss/FB_SS.png" type="Texture" id=1]
 [ext_resource path="res://Src/FinalBoss.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2, 1.4, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 2, 3, 4, 3 ]
+}
 
 [node name="FinalBoss" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -11,9 +28,13 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.054731, 0.054731 )
 texture = ExtResource( 1 )
+vframes = 3
+hframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 4.23054, 4.23054 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
