@@ -1,15 +1,20 @@
 extends Area2D
 
-const SPEED = 250
 var vel = Vector2()
 onready var timer = get_node("TimerTiempoBala")
 var direction = 1
+var vel_x
+var vel_y
 
 func _ready():
 	timer.set_wait_time(1)
 	timer.start()
 	pass  
 	
+func set_vel(x,y):
+	vel_x = x
+	vel_y = y
+
 func set_bullet_direction(dir):
 	direction = dir
 	if dir == -1:
@@ -18,7 +23,8 @@ func set_bullet_direction(dir):
 		$AnimatedSprite.flip_h = false
 
 func _physics_process(delta):
-	vel.x = (SPEED ) * delta * direction
+	vel.x = vel_x * delta
+	vel_y = vel_y * delta
 	translate(vel)	
 	$AnimatedSprite.play("Shot")		
 

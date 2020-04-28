@@ -15,6 +15,7 @@ const VACUNA = 1
 const BARBIJO = 2
 const JABON = 3
 const BOTAS = 4
+const SPEED_SHOT = 250
 
 #VARIABLES
 var motion = Vector2(0,0)
@@ -29,7 +30,7 @@ var is_dead = false
 var hp = HP_INICIAL
 var armor = ARMOR_INICIAL
 var max_speed = MAX_SPEED_INICIAL
-var damage = DAMAGE_INICIAL
+var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
@@ -131,9 +132,9 @@ func _physics_process(delta):
 				$Animacion.play("Shoot")
 			var shot = SHOT.instance()
 			if sign($Position2D.position.x) == 1:
-				shot.set_bullet_direction(1)
+				shot.set_vel(SPEED_SHOT,0)
 			else:
-				shot.set_bullet_direction(-1)
+				shot.set_vel(-SPEED_SHOT,0)
 			get_parent().add_child(shot)
 			shot.position = $Position2D.global_position
 		if get_slide_count() > 0:			
@@ -187,7 +188,7 @@ func active_power_up():
 				$Armor.set_current($Armor.get_current() + 40)
 		JABON:
 			$TimerPowerUps.start()			
-			damage = DAMAGE_INICIAL * 2	
+			damage_player = DAMAGE_INICIAL * 2	
 		BOTAS:
 			$TimerPowerUps.start()
 			max_speed = MAX_SPEED_INICIAL*1.5 
@@ -203,7 +204,7 @@ func picked_power_up(Tipo, time):
 func _on_TimerPowerUps_timeout():
 	match current_power_up:		
 		JABON:
-			damage = DAMAGE_INICIAL	
+			damage_player = DAMAGE_INICIAL	
 		BOTAS:
 			max_speed = MAX_SPEED_INICIAL
 
