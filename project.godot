@@ -19,11 +19,6 @@ config/name="TP Final"
 run/main_scene="res://Scenes/TitleScreen.tscn"
 config/icon="res://Sprites/icon.png"
 
-[autoload]
-
-UserData="*res://addons/github-integration/scripts/user_data.gd"
-IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
-
 [display]
 
 window/size/width=640
