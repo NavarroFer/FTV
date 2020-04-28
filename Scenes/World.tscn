@@ -71,7 +71,7 @@ __meta__ = {
 }
 
 [node name="WorldComplete" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4035.27, 246.65 )
+position = Vector2( 3599.35, 239.969 )
 next_world = "res://Scenes/World2.tscn"
 
 [node name="Keys" type="Node" parent="."]
@@ -153,7 +153,7 @@ __meta__ = {
 }
 
 [node name="K" type="Sprite" parent="Keys"]
-position = Vector2( 4005.05, 110 )
+position = Vector2( 3564.05, 110 )
 scale = Vector2( 1.9497, 1.9497 )
 texture = ExtResource( 8 )
 
