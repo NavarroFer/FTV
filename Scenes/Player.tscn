@@ -305,9 +305,21 @@ wait_time = 10.0
 [node name="Health" parent="." instance=ExtResource( 63 )]
 
 [node name="Armor" parent="." instance=ExtResource( 64 )]
+
+[node name="TimerINV" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="TimerVIS" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="TimerINVGral" type="Timer" parent="."]
+wait_time = 2.0
 [connection signal="animation_finished" from="Animacion" to="." method="_on_Animacion_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
 [connection signal="timeout" from="TimerPowerUps" to="." method="_on_TimerPowerUps_timeout"]
 [connection signal="changed" from="Health" to="." method="_on_Health_changed"]
 [connection signal="changed_armor" from="Armor" to="." method="_on_Armor_changed_armor"]
+[connection signal="timeout" from="TimerINV" to="." method="_on_TimerINV_timeout"]
+[connection signal="timeout" from="TimerVIS" to="." method="_on_TimerVIS_timeout"]
+[connection signal="timeout" from="TimerINVGral" to="." method="_on_TimerINVGral_timeout"]

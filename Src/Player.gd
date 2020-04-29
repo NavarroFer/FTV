@@ -6,7 +6,7 @@ const MAX_SPEED_INICIAL = 160
 const ACCELERATION = 50
 const JUMP = 350
 const GRAVITY = 10
-const DAMAGE_INICIAL = 50
+const DAMAGE_INICIAL = 30
 const ARMOR_INICIAL = 0
 const SHOT = preload("res://Scenes/Bullet.tscn")
 const FINAL_BG = preload("res://Sprites/Background/100334.png")
@@ -130,11 +130,11 @@ func _physics_process(delta):
 				$Animacion.play("Shoot_INV")
 			else:
 				$Animacion.play("Shoot")
-			var shot = SHOT.instance()
+			var shot = SHOT.instance()	
 			if sign($Position2D.position.x) == 1:
-				shot.set_vel(SPEED_SHOT,0)
+				shot.init(1,damage_player,SPEED_SHOT,0)
 			else:
-				shot.set_vel(-SPEED_SHOT,0)
+				shot.init(1,damage_player,-SPEED_SHOT,0)
 			get_parent().add_child(shot)
 			shot.position = $Position2D.global_position
 		if get_slide_count() > 0:			

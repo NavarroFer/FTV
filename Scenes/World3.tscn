@@ -11,11 +11,19 @@
 
 [node name="World3" type="Node"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2( 230, 210 )
+scale = Vector2( 0.8, 0.8 )
+transform = Transform2D( 0.8, 0, 0, 0.8, 230, 210 )
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_left = -3.08493
+margin_top = -1.14365
+margin_right = -3.08493
+margin_bottom = -1.14365
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 224 )
-
-[node name="HUD" parent="Player" instance=ExtResource( 7 )]
-position = Vector2( 6.12891, -11.6653 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -66,8 +74,8 @@ next_world = "res://Scenes/WorldFinal.tscn"
 [node name="PowerUp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 22.8552, 163.502 )
 Tipo = 4
-[connection signal="armor_change" from="Player" to="Player/HUD" method="_on_Player_armor_change"]
-[connection signal="hp_changed" from="Player" to="Player/HUD" method="_on_Player_hp_changed"]
-[connection signal="item_actived" from="Player" to="Player/HUD" method="_on_Player_item_actived"]
-[connection signal="item_picked" from="Player" to="Player/HUD" method="_on_Player_item_picked"]
+[connection signal="armor_change" from="Player" to="CanvasLayer/HUD" method="_on_Player_armor_change"]
+[connection signal="hp_changed" from="Player" to="CanvasLayer/HUD" method="_on_Player_hp_changed"]
+[connection signal="item_actived" from="Player" to="CanvasLayer/HUD" method="_on_Player_item_actived"]
+[connection signal="item_picked" from="Player" to="CanvasLayer/HUD" method="_on_Player_item_picked"]
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]

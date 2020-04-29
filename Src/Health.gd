@@ -20,10 +20,7 @@ func get_current():
 
 func set_current(new_value):
 	current = new_value
-#CLAMP: Current siempre estara entre 0 y max
 	emit_signal("changed",current)
-	if current == 0:
-		emit_signal("depleted")
 
 func initialize():
 	emit_signal("max_changed",max_amount)
