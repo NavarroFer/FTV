@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 func _on_Player_armor_change(armor):
 	$ArmorBar.set_value(armor)

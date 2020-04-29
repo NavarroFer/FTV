@@ -1,12 +1,50 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/Enemies/FinalBoss/FB_SS.png" type="Texture" id=1]
 [ext_resource path="res://Src/FinalBoss.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Health.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Enemies/FinalBoss/Objects/fire_particle.png" type="Texture" id=4]
+
+[sub_resource type="Curve" id=4]
+max_value = 50.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.0632184, 41.7614 ), 0.0, 0.0, 0, 0, Vector2( 0.988506, 48.5795 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.172, 0.302, 0.391, 1 )
+colors = PoolColorArray( 1, 0.635294, 0.282353, 1, 1, 0.4, 0, 1, 0.678431, 0.278431, 0.168627, 0.231373, 0.513726, 0.360784, 0.2, 0.0784314, 1, 1, 1, 0.0823529 )
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="Animation" id=2]
-resource_name = "Idle"
+resource_name = "Death"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.4, 1.45, 1.5, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1, 2, 3, 4, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.9, 2.95 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 3.1
 loop = true
 step = 0.05
@@ -22,27 +60,117 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 1, 2, 1, 2, 3, 4, 3 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="FinalBoss" type="KinematicBody2D"]
+position = Vector2( 96.828, 58.8381 )
 script = ExtResource( 2 )
+
+[node name="Health" parent="." instance=ExtResource( 3 )]
+max_amount = 50
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.054731, 0.054731 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 2
-frame = 1
+frame = 3
+
+[node name="Explotion" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 3.0
+one_shot = true
+draw_order = 1
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 35, 35 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 1.0
+angular_velocity = 26.0
+radial_accel = 1.0
+radial_accel_random = 0.3
+radial_accel_curve = SubResource( 4 )
+damping = 10.0
+color_ramp = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 4.23054, 4.23054 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 2 )
+anims/Death = SubResource( 2 )
+anims/Idle = SubResource( 3 )
 
-[node name="Position2D" type="Position2D" parent="."]
+[node name="Position0" type="Position2D" parent="."]
+position = Vector2( 50.6302, -1.89075 )
+
+[node name="Position1" type="Position2D" parent="."]
+position = Vector2( 47.479, -20.7983 )
+
+[node name="Position2" type="Position2D" parent="."]
+position = Vector2( 36.7647, -38.4453 )
+
+[node name="Position3" type="Position2D" parent="."]
+position = Vector2( 20.3782, -47.2688 )
+
+[node name="Position4" type="Position2D" parent="."]
+position = Vector2( 0.210182, -52.9411 )
+
+[node name="Position5" type="Position2D" parent="."]
+position = Vector2( -18.6973, -49.1596 )
+
+[node name="Position6" type="Position2D" parent="."]
+position = Vector2( -33.8233, -39.7058 )
+
+[node name="Position7" type="Position2D" parent="."]
+position = Vector2( -47.6889, -21.4285 )
+
+[node name="Position8" type="Position2D" parent="."]
+position = Vector2( -52.1006, -1.2605 )
+
+[node name="Position9" type="Position2D" parent="."]
+position = Vector2( -48.9494, 18.2773 )
+
+[node name="Position10" type="Position2D" parent="."]
+position = Vector2( -38.2351, 35.2941 )
+
+[node name="Position11" type="Position2D" parent="."]
+position = Vector2( -21.2183, 47.2688 )
+
+[node name="Position12" type="Position2D" parent="."]
+position = Vector2( -0.420044, 52.3108 )
+
+[node name="Position13" type="Position2D" parent="."]
+position = Vector2( 22.269, 46.0083 )
+
+[node name="Position14" type="Position2D" parent="."]
+position = Vector2( 39.916, 33.4033 )
+
+[node name="Position15" type="Position2D" parent="."]
+position = Vector2( 48.1093, 16.3865 )
 
 [node name="TimerMultipleShot" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
+
+[node name="TimerDeath" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TimerAnimation" type="Timer" parent="."]
+one_shot = true
+[connection signal="changed" from="Health" to="." method="_on_Health_changed"]
 [connection signal="timeout" from="TimerMultipleShot" to="." method="_on_TimerMultipleShot_timeout"]
+[connection signal="timeout" from="TimerDeath" to="." method="_on_TimerDeath_timeout"]
+[connection signal="timeout" from="TimerAnimation" to="." method="_on_TimerAnimation_timeout"]

@@ -55,8 +55,11 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="Control"]
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HealthBar" parent="." instance=ExtResource( 4 )]
 margin_left = -252.512
