@@ -25,4 +25,3 @@ func set_current(new_value):
 func initialize():
 	emit_signal("max_changed",max_amount)
 	emit_signal("changed",current)
-
