@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/background_load.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Fonts/myanmar-text-bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Interface/bar_back.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Interface/bar_front.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Background/BG_LoadScreen.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Background/icon-06-1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Fonts/agency-fb-bold_[allfont.es].ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 37
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../TextureProgress/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Cargando...", "Cargando", "Cargando.", "Cargando..", "Cargando..." ]
+}
+
+[node name="BackgroundLoad" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.345109, 0.345109 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_left = 268.802
+margin_top = 316.277
+margin_right = 434.802
+margin_bottom = 334.277
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="TextureProgress"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 90.218
+margin_top = -321.829
+margin_right = 485.218
+margin_bottom = 73.1711
+rect_scale = Vector2( 0.848461, 0.848461 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Consejo" type="Label" parent="TextureProgress"]
+margin_left = -238.0
+margin_top = -276.0
+margin_right = 153.0
+margin_bottom = -63.0
+custom_fonts/font = SubResource( 1 )
+text = "Lávese las manos con frecuencia con un desinfectante de manos a base de alcohol o con agua y jabón."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TextureProgress"]
+margin_left = -89.2639
+margin_top = -43.9737
+margin_right = 267.736
+margin_bottom = -20.9737
+custom_fonts/font = SubResource( 2 )
+text = "Cargando..."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureProgress"]
+autoplay = "cargando"
+anims/cargando = SubResource( 3 )

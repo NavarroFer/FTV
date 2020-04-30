@@ -14,6 +14,7 @@ func _physics_process(delta):
 	pass
 
 func _on_Start_pressed():
+	#BackgroundLoad.load_scene("res://Scenes/World.tscn")
 	get_tree().change_scene("res://Scenes/World.tscn")
 
 
