@@ -11,14 +11,14 @@
 [node name="TitleScreen" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.336606, 0.336606 )
-texture = ExtResource( 3 )
-centered = false
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.022
+anchor_bottom = 1.111
+margin_left = -96.0
+margin_top = -16.0
+margin_right = 720.24
+margin_bottom = 304.08
+rect_scale = Vector2( 0.695745, 0.695745 )
 custom_constants/margin_right = 0
 custom_constants/margin_top = 20
 custom_constants/margin_left = 0
@@ -27,24 +27,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 40.0
+[node name="Sprite" type="TextureRect" parent="MarginContainer"]
 margin_top = 20.0
-margin_right = 600.0
-margin_bottom = 340.0
+margin_right = 1920.0
+margin_bottom = 1100.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 680.0
+margin_top = 20.0
+margin_right = 1240.0
+margin_bottom = 1100.0
 size_flags_horizontal = 4
 custom_constants/separation = 16
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+margin_top = 425.0
 margin_right = 560.0
-margin_bottom = 70.0
+margin_bottom = 495.0
 texture = ExtResource( 2 )
+stretch_mode = 4
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_left = 197.0
-margin_top = 86.0
+margin_top = 511.0
 margin_right = 362.0
-margin_bottom = 230.0
+margin_bottom = 655.0
 size_flags_horizontal = 4
 
 [node name="Start" type="TextureButton" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
