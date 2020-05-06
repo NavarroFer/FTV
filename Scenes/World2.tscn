@@ -22,10 +22,11 @@ scale = Vector2( 0.8, 0.8 )
 transform = Transform2D( 0.8, 0, 0, 0.8, 230, 210 )
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
-margin_left = 0.162842
-margin_top = 0.394775
-margin_right = 0.162842
-margin_bottom = 0.394775
+margin_left = 180.935
+margin_top = 189.261
+margin_right = 180.935
+margin_bottom = 189.261
+rect_scale = Vector2( 1.66197, 1.66197 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -301.925, 217.675 )

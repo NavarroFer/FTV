@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Src/background_load.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Fonts/myanmar-text-bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Sprites/Fonts/mmrtextb.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Sprites/Interface/bar_back.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Interface/bar_front.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Background/BG_LoadScreen.png" type="Texture" id=5]
@@ -9,14 +9,10 @@
 [ext_resource path="res://Sprites/Fonts/agency-fb-bold_[allfont.es].ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 37
-font_data = ExtResource( 7 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -31,8 +27,29 @@ tracks/0/keys = {
 "update": 1,
 "values": [ "Cargando...", "Cargando", "Cargando.", "Cargando..", "Cargando..." ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/Consejo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -238, -276 ), Vector2( -235.252, -269.308 ), Vector2( -229.6, -274.862 ), Vector2( -242.978, -280.578 ), Vector2( -238, -276 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 37
+font_data = ExtResource( 7 )
 
 [node name="BackgroundLoad" type="Control"]
+margin_left = -49.0
+margin_top = -3.0
+margin_right = -49.0
+margin_bottom = -3.0
+rect_scale = Vector2( 1.98242, 1.98242 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,37 +75,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect2" type="TextureRect" parent="TextureProgress"]
-self_modulate = Color( 0, 0, 0, 1 )
-margin_left = 90.218
-margin_top = -321.829
-margin_right = 485.218
-margin_bottom = 73.1711
-rect_scale = Vector2( 0.848461, 0.848461 )
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Consejo" type="Label" parent="TextureProgress"]
-margin_left = -238.0
-margin_top = -276.0
-margin_right = 153.0
-margin_bottom = -63.0
-custom_fonts/font = SubResource( 1 )
-text = "Lávese las manos con frecuencia con un desinfectante de manos a base de alcohol o con agua y jabón."
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label" type="Label" parent="TextureProgress"]
 margin_left = -89.2639
 margin_top = -43.9737
 margin_right = 267.736
 margin_bottom = -20.9737
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Cargando..."
 align = 1
 __meta__ = {
@@ -97,4 +89,36 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextureProgress"]
 autoplay = "cargando"
-anims/cargando = SubResource( 3 )
+anims/cargando = SubResource( 2 )
+
+[node name="Control" type="Control" parent="TextureProgress"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="TextureProgress/Control"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 78.7539
+margin_top = -321.829
+margin_right = 473.754
+margin_bottom = 73.1711
+rect_scale = Vector2( 0.711352, 0.711352 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Consejo" type="Label" parent="TextureProgress/Control"]
+margin_left = -238.0
+margin_top = -276.0
+margin_right = 153.0
+margin_bottom = -62.9999
+custom_fonts/font = SubResource( 3 )
+text = "Lávese las manos con frecuencia con un desinfectante de manos a base de alcohol o con agua y jabón."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

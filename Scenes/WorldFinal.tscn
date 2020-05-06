@@ -17,17 +17,19 @@ scale = Vector2( 0.8, 0.8 )
 transform = Transform2D( 0.8, 0, 0, 0.8, 230, 220 )
 
 [node name="HUD_Boss" parent="CanvasLayer" instance=ExtResource( 6 )]
-margin_left = -76.0986
-margin_top = 125.549
-margin_right = -76.0986
-margin_bottom = 125.549
+margin_left = 112.5
+margin_top = 535.0
+margin_right = 112.5
+margin_bottom = 535.0
+rect_scale = Vector2( 1.662, 1.662 )
 script = ExtResource( 7 )
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = 10.4607
-margin_top = -4.30331
-margin_right = 10.4607
-margin_bottom = -4.30331
+margin_left = 202.5
+margin_top = 195.0
+margin_right = 202.5
+margin_bottom = 195.0
+rect_scale = Vector2( 1.662, 1.662 )
 
 [node name="FinalBoss" parent="." instance=ExtResource( 2 )]
 position = Vector2( 400, -48 )

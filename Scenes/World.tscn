@@ -51,7 +51,7 @@ font_data = ExtResource( 17 )
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3600.87, 266.92 )
+position = Vector2( 113.995, 269.709 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 192, 128 )

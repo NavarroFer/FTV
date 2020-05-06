@@ -255,6 +255,7 @@ scale = Vector2( 0.121774, 0.121774 )
 texture = ExtResource( 65 )
 vframes = 9
 hframes = 9
+frame = 10
 
 [node name="Animacion" type="AnimationPlayer" parent="."]
 anims/Dead = SubResource( 1 )
@@ -277,15 +278,15 @@ shape = SubResource( 12 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 110.14, -61.22 )
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 0.65, 0.65 )
 limit_bottom = 600
 smoothing_speed = 15.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Fondo4" type="Sprite" parent="ParallaxBackground"]
-position = Vector2( 236.827, 111.954 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 880, 496 )
+scale = Vector2( 0.915258, 0.915258 )
 texture = ExtResource( 66 )
 
 [node name="Position2D" type="Position2D" parent="."]
