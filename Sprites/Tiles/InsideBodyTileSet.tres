@@ -1,7 +1,6 @@
-[gd_resource type="TileSet" load_steps=16 format=2]
+[gd_resource type="TileSet" load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Tiles/JungleDirtTileSetRosita.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Tiles/arte-del-pixel-de-los-pulmones-pedazo-humano-órganos-internos-anatomía-pixelate-132557905.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -717,20 +716,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 16, 16 )
 } ]
 26/z_index = 0
-27/name = "arte-del-pixel-de-los-pulmones-pedazo-humano-órganos-internos-anatomía-pixelate-132557905.png 27"
-27/texture = ExtResource( 2 )
-27/tex_offset = Vector2( 0, 0 )
-27/modulate = Color( 1, 1, 1, 1 )
-27/region = Rect2( 0, 0, 132, 112 )
-27/tile_mode = 0
-27/occluder_offset = Vector2( 0, 0 )
-27/navigation_offset = Vector2( 0, 0 )
-27/shape_offset = Vector2( 0, 0 )
-27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-27/shape_one_way = false
-27/shape_one_way_margin = 0.0
-27/shapes = [  ]
-27/z_index = 0
 28/name = "JungleDirtTileSetRosita.png 28"
 28/texture = ExtResource( 1 )
 28/tex_offset = Vector2( 0, 0 )
