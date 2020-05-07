@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/WorldComplete.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/EnemyA.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/EnemyC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Joystick.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=11]
 
@@ -22,11 +24,29 @@ scale = Vector2( 0.8, 0.8 )
 transform = Transform2D( 0.8, 0, 0, 0.8, 230, 210 )
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 11 )]
-margin_left = 180.935
-margin_top = 189.261
-margin_right = 180.935
-margin_bottom = 189.261
-rect_scale = Vector2( 1.66197, 1.66197 )
+margin_left = 560.414
+margin_top = 538.781
+margin_right = 560.414
+margin_bottom = 538.781
+rect_scale = Vector2( 3.03063, 3.03063 )
+
+[node name="Saltar" parent="CanvasLayer" instance=ExtResource( 7 )]
+position = Vector2( 1974, 900 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="Disparar" parent="CanvasLayer" instance=ExtResource( 7 )]
+position = Vector2( 1736, 900 )
+scale = Vector2( 1.5, 1.5 )
+tipo = 1
+
+[node name="Action" parent="CanvasLayer" instance=ExtResource( 7 )]
+position = Vector2( 1854, 728 )
+scale = Vector2( 1.5, 1.5 )
+tipo = 2
+
+[node name="Joystick" parent="CanvasLayer" instance=ExtResource( 6 )]
+position = Vector2( 272, 896 )
+scale = Vector2( 0.727, 0.727 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -301.925, 217.675 )

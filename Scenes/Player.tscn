@@ -276,17 +276,17 @@ scale = Vector2( 1.09, 0.86 )
 shape = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 110.14, -61.22 )
+offset = Vector2( 110.14, -130 )
 current = true
-zoom = Vector2( 0.65, 0.65 )
+zoom = Vector2( 0.35, 0.35 )
 limit_bottom = 600
 smoothing_speed = 15.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Fondo4" type="Sprite" parent="ParallaxBackground"]
-position = Vector2( 880, 496 )
-scale = Vector2( 0.915258, 0.915258 )
+position = Vector2( 1280, 688 )
+scale = Vector2( 1.35369, 1.35369 )
 texture = ExtResource( 66 )
 
 [node name="Position2D" type="Position2D" parent="."]

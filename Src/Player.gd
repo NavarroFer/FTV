@@ -20,6 +20,9 @@ const SPEED_SHOT = 250
 #VARIABLES
 var motion = Vector2(0,0)
 var inv
+var left
+var rigth
+var idle
 var is_atacking = false
 var is_atacking_run = false
 var rigth_signal = false
@@ -34,6 +37,10 @@ var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
+onready var Joystick = get_parent().get_node("CanvasLayer/Joystick/Joystick_Button")
+onready var Button_Jump = get_parent().get_node("CanvasLayer/Saltar")
+onready var Button_Shot = get_parent().get_node("CanvasLayer/Disparar")
+onready var Button_Action = get_parent().get_node("CanvasLayer/Action")
 onready var Timer2 = $Timer2
 
 #SIGNALS
@@ -59,8 +66,9 @@ func _physics_process(delta):
 	if is_dead == false:
 		$CollisionShape2D.disabled = false
 		motion.y += GRAVITY
-		var friction = false
-		if Input.is_action_pressed("move_r"):
+		var friction = false		
+		#if Input.is_action_pressed("move_r"):
+		if Joystick.get_value() > 0:
 			motion.x = min (motion.x+ACCELERATION,max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = false;
@@ -73,7 +81,8 @@ func _physics_process(delta):
 			if(!rigth_signal && position.x > 200):
 				rigth_signal = true
 				emit_signal("moved_rigth")
-		elif Input.is_action_pressed("move_l"):
+		#elif Input.is_action_pressed("move_l"):
+		elif Joystick.get_value() < 0:
 			motion.x = max (motion.x-ACCELERATION,-max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = true;
@@ -95,7 +104,7 @@ func _physics_process(delta):
 			friction = true
 	
 		if is_on_floor():
-			if Input.is_action_pressed("move_up"):
+			if Button_Jump.is_pressed():
 				motion.y = -JUMP
 				if(!jump_signal && position.x > 1200):
 					jump_signal = true
@@ -119,7 +128,7 @@ func _physics_process(delta):
 	
 		motion = move_and_slide(motion,UP)
 		
-		if Input.is_action_just_pressed("Shoot") && is_atacking == false:
+		if Button_Shot.is_pressed() && is_atacking == false:
 			if(!shoot_signal && position.x > 1700):
 				shoot_signal = true
 				emit_signal("moved_shoot")
@@ -141,7 +150,7 @@ func _physics_process(delta):
 			for i in range (get_slide_count()):
 				if "Enemy" in get_slide_collision(i).collider.name:
 					hp_decrease(get_slide_collision(i).collider.getDamage())
-	if(Input.is_action_pressed("Action") && has_item_picked == true):
+	if(Button_Action.is_pressed() && has_item_picked == true):
 		emit_signal("item_actived",current_power_up,time_power_up)
 		active_power_up()
 		has_item_picked = false
@@ -228,3 +237,42 @@ func _on_WorldFinal_WorldFinal_started():
 	$ParallaxBackground/Fondo4.texture = preload("res://Sprites/Background/BG_FinalBoss.png")
 
 	
+
+
+func _on_Joystick_move_left():
+	left = true
+	rigth = false
+	idle = false
+
+func _on_Joystick_move_rigth():
+	rigth = true
+	left = false
+	idle = false
+
+
+func _on_Joystick_idle():
+	idle = true
+	left = false
+	rigth = false
+
+
+func _on_Disparar_action():
+	if(!shoot_signal && position.x > 1700):
+		shoot_signal = true
+		emit_signal("moved_shoot")
+	if is_on_floor():
+		motion.x = 0
+	is_atacking = true
+	if(inv == true):
+		$Animacion.play("Shoot_INV")
+	else:
+		$Animacion.play("Shoot")
+	var shot = SHOT.instance()	
+	if sign($Position2D.position.x) == 1:
+		shot.init(1,damage_player,SPEED_SHOT,0)
+	else:
+		shot.init(1,damage_player,-SPEED_SHOT,0)
+	get_parent().add_child(shot)
+	shot.position = $Position2D.global_position
+
+
