@@ -8,8 +8,6 @@ func _ready():
 func _physics_process(delta):
 	if $MarginContainer/VBoxContainer/VBoxContainer2/Start.is_hovered() == true:
 		$MarginContainer/VBoxContainer/VBoxContainer2/Start.grab_focus()
-	if $MarginContainer/VBoxContainer/VBoxContainer2/Exit.is_hovered() == true:
-		$MarginContainer/VBoxContainer/VBoxContainer2/Exit.grab_focus()
 	
 	pass
 

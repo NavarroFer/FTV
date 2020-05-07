@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShootP.png" type="Texture" id=3]
+
+[node name="Button" type="TouchScreenButton"]
+normal = ExtResource( 2 )
+pressed = ExtResource( 3 )
+script = ExtResource( 1 )
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
