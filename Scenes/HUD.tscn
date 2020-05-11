@@ -56,6 +56,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [node name="HUD" type="Control"]
+rect_scale = Vector2( 3.301, 3.301 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -80,7 +81,7 @@ custom_styles/bg = SubResource( 4 )
 script = ExtResource( 1 )
 
 [node name="TimerItem" parent="." instance=ExtResource( 6 )]
-margin_left = 366.69
+margin_left = 300.0
 margin_top = -248.305
-margin_right = 486.69
+margin_right = 420.0
 margin_bottom = -203.305

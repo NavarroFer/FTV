@@ -37,10 +37,10 @@ var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
-onready var Joystick = get_parent().get_node("CanvasLayer/Joystick/Joystick_Button")
-onready var Button_Jump = get_parent().get_node("CanvasLayer/Saltar")
-onready var Button_Shot = get_parent().get_node("CanvasLayer/Disparar")
-onready var Button_Action = get_parent().get_node("CanvasLayer/Action")
+onready var Joystick = get_parent().get_node("OGH/Joystick/Joystick_Button")
+onready var Button_Jump = get_parent().get_node("OGH/Saltar")
+onready var Button_Shot = get_parent().get_node("OGH/Disparar")
+onready var Button_Action = get_parent().get_node("OGH/Action")
 onready var Timer2 = $Timer2
 
 #SIGNALS
@@ -55,6 +55,8 @@ signal item_picked
 
 
 func _ready():	
+	motion.x = 0
+	motion.y = 0	
 	$Health.set_max(100)
 	$Health.set_current(HP_INICIAL)
 	$Armor.set_max(100)
@@ -237,8 +239,6 @@ func _on_WorldFinal_WorldFinal_started():
 	$ParallaxBackground/Fondo4.texture = preload("res://Sprites/Background/BG_FinalBoss.png")
 
 	
-
-
 func _on_Joystick_move_left():
 	left = true
 	rigth = false
@@ -274,5 +274,4 @@ func _on_Disparar_action():
 		shot.init(1,damage_player,-SPEED_SHOT,0)
 	get_parent().add_child(shot)
 	shot.position = $Position2D.global_position
-
 

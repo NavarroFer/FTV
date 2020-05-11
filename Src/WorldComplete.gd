@@ -1,7 +1,7 @@
 extends Area2D
 export(String,FILE,"*.tscn") var next_world
 
-onready var Button_Action = get_parent().get_node("CanvasLayer/Action")
+onready var Button_Action = get_parent().get_node("OGH/Action")
 
 func _ready():
 	$AnimationPlayer.play("Vena")
