@@ -12,6 +12,9 @@ signal move_rigth
 signal move_left
 signal idle
 
+func _ready():
+	position.x = -50
+	
 func _process(delta):
 	print(mov)
 	if ongoing_drag == -1:
