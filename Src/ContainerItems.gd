@@ -26,7 +26,8 @@ func setPicked(tipo,time):
 		3: $Picked.texture = JABON
 		4: $Picked.texture = BOTAS
 	
-	
+func resaltar():
+	$AnimationPlayer.play("Resaltar")
 
 func setActive(tipo,time):
 	if(tipo_picked != 2):

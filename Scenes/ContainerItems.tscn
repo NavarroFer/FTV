@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/PowerUps/Bota.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/PowerUps/Barbijo.png" type="Texture" id=2]
@@ -26,11 +26,40 @@ Label/styles/normal = null
 size = 45
 font_data = ExtResource( 4 )
 
+[sub_resource type="Animation" id=4]
+resource_name = "Resaltar"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.964706, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="TimerItem" type="NinePatchRect"]
 margin_left = 508.923
 margin_top = 11.4113
 margin_right = 628.923
-margin_bottom = 45.4113
+margin_bottom = 56.4113
 rect_min_size = Vector2( 120, 0 )
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 120, 48 )
@@ -81,4 +110,7 @@ __meta__ = {
 }
 
 [node name="TimerPowerUp" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Resaltar = SubResource( 4 )
 [connection signal="timeout" from="TimerPowerUp" to="." method="_on_TimerPowerUp_timeout"]

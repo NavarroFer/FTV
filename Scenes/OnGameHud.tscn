@@ -1,9 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/OnGameHud.gd" type="Script" id=1]
+[ext_resource path="res://Src/OnGameHud.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Joystick.tscn" type="PackedScene" id=9]
+
 
 [node name="OGH" type="CanvasLayer"]
 script = ExtResource( 1 )

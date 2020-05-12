@@ -5,9 +5,10 @@ var Barbijo = preload("res://Sprites/PowerUps/Barbijo.png")
 var Jabon = preload("res://Sprites/PowerUps/Jabon.png")
 var Botas = preload("res://Sprites/PowerUps/Bota.png")
 var time
+var item_tutorial_agarrado = false
 
 export (int) var Tipo
-signal item_picked
+signal item_tutorial
 
 const VACUNA = 1
 const TIME_VACUNA = 5
@@ -35,6 +36,10 @@ func _ready():
 	$AnimationPlayer.play("Idle")
 
 func _on_PowerUp_body_entered(body):	
+	if item_tutorial_agarrado == false && get_parent().name == "World":
+		emit_signal("item_tutorial")
 	if "Player" in body.name:
 		body.picked_power_up(Tipo,time)
 		queue_free()
+
+

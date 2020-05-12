@@ -10,6 +10,8 @@ var direction = 1
 var is_dead = false
 var timer
 
+signal enemy_dead
+
 func _ready():	
 	timer = Timer.new()
 	timer.set_one_shot(true)
@@ -20,6 +22,11 @@ func _ready():
 
 func dead():
 	is_dead = true
+	var array = filename.split("/",true,3)
+	var subString = array[3]
+	var array2 = str(array[3]).split(".",true,1)
+	emit_signal("enemy_dead",str(array2[0]))
+	print("señal emitida")
 	vel = Vector2(0,0)
 	$CollisionShape2D.queue_free()
 	$AnimatedSprite.play("Dead")	

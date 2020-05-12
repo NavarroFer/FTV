@@ -70,7 +70,7 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 		var friction = false		
 		#if Input.is_action_pressed("move_r"):
-		if Joystick.get_value() > 0:
+		if Joystick.get_value() > 0 or Input.is_action_pressed("move_r"):
 			motion.x = min (motion.x+ACCELERATION,max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = false;
@@ -84,7 +84,7 @@ func _physics_process(delta):
 				rigth_signal = true
 				emit_signal("moved_rigth")
 		#elif Input.is_action_pressed("move_l"):
-		elif Joystick.get_value() < 0:
+		elif Joystick.get_value() < 0 or Input.is_action_pressed("move_l"):
 			motion.x = max (motion.x-ACCELERATION,-max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = true;
@@ -106,7 +106,7 @@ func _physics_process(delta):
 			friction = true
 	
 		if is_on_floor():
-			if Button_Jump.is_pressed():
+			if Button_Jump.is_pressed() or Input.is_action_pressed("move_up"):
 				motion.y = -JUMP
 				if(!jump_signal && position.x > 1200):
 					jump_signal = true
@@ -130,7 +130,7 @@ func _physics_process(delta):
 	
 		motion = move_and_slide(motion,UP)
 		
-		if Button_Shot.is_pressed() && is_atacking == false:
+		if Input.is_action_pressed("Shoot") or Button_Shot.is_pressed() && is_atacking == false :
 			if(!shoot_signal && position.x > 1700):
 				shoot_signal = true
 				emit_signal("moved_shoot")

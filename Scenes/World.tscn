@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonAction.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Keys/JoystickL.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=8]
-[ext_resource path="res://Src/World.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/Keys/JoystickR.png" type="Texture" id=10]
 [ext_resource path="res://Src/D.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/Keys/flecha.png" type="Texture" id=12]
@@ -18,6 +17,8 @@
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Sprites/Fonts/Gumela.ttf" type="DynamicFontData" id=17]
 [ext_resource path="res://Scenes/OnGameHud.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Src/K.gd" type="Script" id=19]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,10 +50,9 @@ size = 28
 font_data = ExtResource( 17 )
 
 [node name="World" type="Node"]
-script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 113.995, 269.709 )
+position = Vector2( 1893.03, 267.437 )
 
 [node name="OGH" parent="." instance=ExtResource( 18 )]
 
@@ -179,6 +179,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="K2" type="Sprite" parent="Keys"]
+position = Vector2( 1999.54, 80 )
+scale = Vector2( 0.837, 0.837 )
+texture = ExtResource( 6 )
+script = ExtResource( 19 )
+
+[node name="Label4" type="Label" parent="Keys/K2"]
+margin_left = -105.198
+margin_top = 52.5687
+margin_right = 32.8025
+margin_bottom = 99.5687
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 4 )
+text = "Action Button
+Active PowerUp"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="."]
 margin_left = 1925.0
 margin_top = 190.0
@@ -240,6 +261,9 @@ position = Vector2( 3200, 290 )
 Tipo = 4
 [connection signal="armor_change" from="Player" to="OGH" method="_on_Player_armor_change"]
 [connection signal="hp_changed" from="Player" to="OGH" method="_on_Player_hp_changed"]
+[connection signal="item_actived" from="Player" to="OGH" method="_on_Player_item_actived"]
+[connection signal="item_actived" from="Player" to="Keys/K2" method="_on_Player_item_actived"]
+[connection signal="item_picked" from="Player" to="OGH" method="_on_Player_item_picked"]
 [connection signal="moved_jump" from="Player" to="Keys/W" method="_on_Player_moved_jump"]
 [connection signal="moved_left" from="Player" to="Keys/A" method="_on_Player_moved_left"]
 [connection signal="moved_rigth" from="Player" to="Keys/D" method="_on_Player_moved_rigth"]
@@ -248,3 +272,8 @@ Tipo = 4
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="OGH" to="Player" method="_on_Joystick_move_rigth"]
 [connection signal="shot" from="OGH" to="Player" method="_on_Disparar_action"]
+[connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]
+[connection signal="item_tutorial" from="PowerUp" to="OGH" method="_on_PowerUp_item_tutorial"]
+[connection signal="body_entered" from="PowerUp2" to="PowerUp2" method="_on_PowerUp_body_entered"]
+[connection signal="body_entered" from="PowerUp3" to="PowerUp3" method="_on_PowerUp_body_entered"]
+[connection signal="body_entered" from="PowerUp4" to="PowerUp4" method="_on_PowerUp_body_entered"]

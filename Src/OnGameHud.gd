@@ -24,8 +24,8 @@ func _ready():
 	$HUD/HealthBar.rect_position.y = get_viewport().size.y*0.02
 	$HUD/ArmorBar.rect_position.x = get_viewport().size.x*0.005
 	$HUD/ArmorBar.rect_position.y = get_viewport().size.y*0.05
-	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.33
-	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.02
+	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.01
+	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.1
 	pass # Replace with function body.
 
 
@@ -50,6 +50,7 @@ func _on_Player_item_picked(tipo,time):
 
 func _on_Player_item_actived(tipo,time):
 	$HUD._on_Player_item_actived(tipo,time)
+	
 
 
 func _on_Joystick_idle():
@@ -60,3 +61,7 @@ func _on_Joystick_move_left():
 
 func _on_Joystick_move_rigth():
 	emit_signal("move_rigth")
+
+
+func _on_PowerUp_item_tutorial():
+	$HUD/TimerItem.resaltar()

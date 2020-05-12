@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/WorldComplete.tscn" type="PackedScene" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://Scenes/EnemyC.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/OnGameHud.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/ZonaMuerte.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Src/World.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=10]
 
 [node name="World2" type="Node"]
+script = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -93,4 +95,14 @@ scale = Vector2( 2.00396, -0.706987 )
 [connection signal="hp_changed" from="Player" to="OGH" method="_on_Player_hp_changed"]
 [connection signal="item_actived" from="Player" to="OGH" method="_on_Player_item_actived"]
 [connection signal="item_picked" from="Player" to="OGH" method="_on_Player_item_picked"]
+[connection signal="level_completed" from="WorldComplete" to="." method="level_completed"]
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]
+[connection signal="enemy_dead" from="EnemyA3" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyA4" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyA5" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyC" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyC2" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyC3" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyC4" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyC5" to="." method="enemyKilled"]
+[connection signal="enemy_dead" from="EnemyA2" to="." method="enemyKilled"]
