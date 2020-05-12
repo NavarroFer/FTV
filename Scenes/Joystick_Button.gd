@@ -16,7 +16,6 @@ func _ready():
 	position.x = -50
 	
 func _process(delta):
-	print(mov)
 	if ongoing_drag == -1:
 		var pos_difference = (Vector2(0,0) - radius ) - position
 		position += pos_difference * return_accel * delta

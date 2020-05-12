@@ -3,13 +3,13 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/WorldComplete.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Keys/d.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Keys/a.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Keys/w.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Keys/j.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Keys/k.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Keys/JoystickROK.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/VirtualJoystickPack/ButtonJump.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/VirtualJoystickPack/ButtonAction.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Keys/JoystickL.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=8]
 [ext_resource path="res://Src/World.gd" type="Script" id=9]
-[ext_resource path="res://Sprites/Keys/d pressed.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Keys/JoystickR.png" type="Texture" id=10]
 [ext_resource path="res://Src/D.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/Keys/flecha.png" type="Texture" id=12]
 [ext_resource path="res://Src/A.gd" type="Script" id=13]
@@ -21,12 +21,12 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "pressed",
 "speed": 5.0
@@ -73,44 +73,44 @@ next_world = "res://Scenes/World2.tscn"
 [node name="Keys" type="Node" parent="."]
 
 [node name="D" type="AnimatedSprite" parent="Keys"]
-position = Vector2( 218.61, 110 )
-scale = Vector2( 1.9497, 1.9497 )
+position = Vector2( 218.61, 80 )
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 script = ExtResource( 11 )
 
 [node name="FlechaDerecha" type="TextureRect" parent="Keys/D"]
-margin_left = 12.0
-margin_top = 30.0
-margin_right = 852.0
-margin_bottom = 491.0
+margin_left = 124.633
+margin_top = 325.0
+margin_right = 964.633
+margin_bottom = 786.0
 rect_rotation = 180.0
-rect_scale = Vector2( 0.03, 0.03 )
+rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="A" type="Sprite" parent="Keys"]
-position = Vector2( 718, 110 )
-scale = Vector2( 1.9497, 1.9497 )
-texture = ExtResource( 5 )
+position = Vector2( 718, 80 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
 script = ExtResource( 13 )
 
 [node name="FlechaIzquierda" type="TextureRect" parent="Keys/A"]
-margin_left = -13.0
-margin_top = 12.0
-margin_right = 827.0
-margin_bottom = 473.0
-rect_scale = Vector2( 0.03, 0.03 )
+margin_left = -126.667
+margin_top = 180.0
+margin_right = 713.333
+margin_bottom = 641.0
+rect_scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="W" type="Sprite" parent="Keys"]
-position = Vector2( 1218, 110 )
-scale = Vector2( 1.9497, 1.9497 )
-texture = ExtResource( 6 )
+position = Vector2( 1300, 80 )
+scale = Vector2( 0.836909, 0.836909 )
+texture = ExtResource( 5 )
 script = ExtResource( 15 )
 
 [node name="Label2" type="Label" parent="Keys/W"]
@@ -128,28 +128,29 @@ __meta__ = {
 }
 
 [node name="FlechaArriba" type="TextureRect" parent="Keys/W"]
-margin_left = 6.02759
-margin_top = 12.8848
-margin_right = 846.028
-margin_bottom = 473.885
+margin_left = 23.8972
+margin_top = 59.7432
+margin_right = 863.898
+margin_bottom = 520.743
 rect_rotation = 90.0
-rect_scale = Vector2( 0.03, 0.03 )
+rect_scale = Vector2( 0.11, 0.11 )
 texture = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="J" type="Sprite" parent="Keys"]
-position = Vector2( 1718, 110 )
-scale = Vector2( 1.9497, 1.9497 )
-texture = ExtResource( 7 )
+position = Vector2( 1718, 80 )
+scale = Vector2( 0.837, 0.837 )
+texture = ExtResource( 8 )
 script = ExtResource( 14 )
 
 [node name="Label3" type="Label" parent="Keys/J"]
-margin_left = -41.2994
-margin_top = 17.4434
-margin_right = 39.7006
-margin_bottom = 31.4434
+margin_left = -60.9321
+margin_top = 57.3477
+margin_right = 20.0679
+margin_bottom = 82.3477
+rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 3 )
 text = "Shoot"
 align = 1
@@ -159,15 +160,16 @@ __meta__ = {
 }
 
 [node name="K" type="Sprite" parent="Keys"]
-position = Vector2( 3699.05, 110 )
-scale = Vector2( 1.9497, 1.9497 )
-texture = ExtResource( 8 )
+position = Vector2( 3699.05, 80 )
+scale = Vector2( 0.837, 0.837 )
+texture = ExtResource( 6 )
 
 [node name="Label4" type="Label" parent="Keys/K"]
-margin_left = -70.7996
-margin_top = 16.7456
-margin_right = 67.2004
-margin_bottom = 63.7456
+margin_left = -105.198
+margin_top = 52.5687
+margin_right = 32.8025
+margin_bottom = 99.5687
+rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 4 )
 text = "Action Button
 Active PowerUp"
