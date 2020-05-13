@@ -271,9 +271,9 @@ func _on_Disparar_action():
 		$Animacion.play("Shoot")
 	var shot = SHOT.instance()	
 	if sign($Position2D.position.x) == 1:
-		shot.init(1,damage_player,SPEED_SHOT,0)
+		shot.initAngle(SPEED_SHOT,0)
 	else:
-		shot.init(1,damage_player,-SPEED_SHOT,0)
+		shot.initAngle(-SPEED_SHOT,0)
 	get_parent().add_child(shot)
 	shot.position = $Position2D.global_position
 
