@@ -34,52 +34,39 @@ Tipo = 2
 
 [node name="EnemyA3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2547.23, 201.32 )
-gravity = 10
 speed = 20
-damage = 10
 
 [node name="EnemyA4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 90.7378, 272.625 )
-gravity = 10
 speed = 20
-damage = 10
 
 [node name="EnemyA5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 3708.39, 233.34 )
-gravity = 10
 speed = 20
-damage = 10
 
 [node name="EnemyC" parent="." instance=ExtResource( 5 )]
 position = Vector2( 840.293, 174.392 )
 speed = 40
-damage = 30
 
 [node name="EnemyC2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1635.77, -14.0588 )
 speed = 60
-damage = 30
 
 [node name="EnemyC3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2015.73, -16.088 )
 speed = 70
-damage = 30
 
 [node name="EnemyC4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3786.19, 16.3827 )
 speed = 60
-damage = 30
 
 [node name="EnemyC5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 4084.37, 274.146 )
 speed = 60
-damage = 30
 
 [node name="EnemyA2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1834.34, 100.135 )
-gravity = 10
 speed = 80
-damage = 10
 
 [node name="ZonaMuerte" parent="." instance=ExtResource( 7 )]
 position = Vector2( 245.449, 562.775 )

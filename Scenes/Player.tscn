@@ -290,7 +290,7 @@ scale = Vector2( 1.35369, 1.35369 )
 texture = ExtResource( 66 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 25.49, 6.29 )
+position = Vector2( 30.4606, 6.29 )
 scale = Vector2( 1, 0.53 )
 
 [node name="Timer" type="Timer" parent="."]

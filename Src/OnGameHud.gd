@@ -17,6 +17,9 @@ func _ready():
 	$Action.position.y = get_viewport().size.y*0.45
 	$Action.position.x = get_viewport().size.x*0.575
 	
+	$Pause.position.y = get_viewport().size.y*0.02
+	$Pause.position.x = get_viewport().size.x*0.575
+	
 	$Joystick.position.x = get_viewport().size.x*0.07
 	$Joystick.position.y = get_viewport().size.y*0.55
 
