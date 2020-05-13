@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/OnGameHud.gd" type="Script" id=1]
+[ext_resource path="res://Src/OnGameHud.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Interface/Pause.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Button.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Joystick.tscn" type="PackedScene" id=9]
@@ -32,6 +33,11 @@ tipo = 2
 [node name="Joystick" parent="." instance=ExtResource( 9 )]
 position = Vector2( 98.0239, 626.408 )
 scale = Vector2( 0.55328, 0.55328 )
+
+[node name="Pause" type="TouchScreenButton" parent="."]
+position = Vector2( 1029.3, 9.01498 )
+scale = Vector2( 0.307921, 0.307921 )
+normal = ExtResource( 2 )
 [connection signal="jump" from="Saltar" to="." method="_on_Saltar_jump"]
 [connection signal="shot" from="Disparar" to="." method="_on_Disparar_shot"]
 [connection signal="action" from="Action" to="." method="_on_Action_action"]

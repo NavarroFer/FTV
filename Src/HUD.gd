@@ -13,3 +13,4 @@ func _on_Player_item_picked(tipo,time):
 
 func _on_Player_item_actived(tipo,time):
 	$TimerItem.setActive(tipo,time)
+	$TimerItem/AnimationPlayer.stop()
