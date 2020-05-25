@@ -1,27 +1,42 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/VirtualJoystickPack/Joystick.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/VirtualJoystickPack/LargeHandleFilledGrey.png" type="Texture" id=2]
 [ext_resource path="res://Src/Joystick_Button.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/VirtualJoystickPack/SmallHandleFilledGrey.png" type="Texture" id=4]
+<<<<<<< HEAD
+[ext_resource path="res://Scenes/Joystick.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/JoystickC.gd" type="Script" id=6]
+=======
 [ext_resource path="res://Src/Joystick.gd" type="Script" id=5]
 
 
+>>>>>>> b49f3a06ee9c98ab42f95451f9883815f77f0f81
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.0
 
-[node name="Joystick" type="Sprite"]
-position = Vector2( 384.661, 211.417 )
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Joystick" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 script = ExtResource( 5 )
 
-[node name="Joystick_Button" type="TouchScreenButton" parent="."]
+[node name="Joystick_Button" type="TouchScreenButton" parent="Joystick"]
 normal = ExtResource( 4 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 script = ExtResource( 3 )
-[connection signal="idle" from="Joystick_Button" to="." method="_on_Joystick_Button_idle"]
-[connection signal="move_left" from="Joystick_Button" to="." method="_on_Joystick_Button_move_left"]
-[connection signal="move_rigth" from="Joystick_Button" to="." method="_on_Joystick_Button_move_rigth"]
-[connection signal="released" from="Joystick_Button" to="Joystick_Button" method="_on_Joystick_Button_released"]
+[connection signal="idle" from="Joystick" to="." method="_on_Joystick_idle"]
+[connection signal="move_left" from="Joystick" to="." method="_on_Joystick_move_left"]
+[connection signal="move_rigth" from="Joystick" to="." method="_on_Joystick_move_rigth"]
+[connection signal="idle" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_idle"]
+[connection signal="move_left" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_move_left"]
+[connection signal="move_rigth" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_move_rigth"]
+[connection signal="released" from="Joystick/Joystick_Button" to="Joystick/Joystick_Button" method="_on_Joystick_Button_released"]

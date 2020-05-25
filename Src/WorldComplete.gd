@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
-		if body.name == "Player" && Button_Action.is_pressed():
+		if body.name == "Player" && (Button_Action.is_pressed() or Input.is_action_pressed("Action")):
 			#BackgroundLoad.load_scene("res://Scenes/World2.tscn")
 			emit_signal("level_completed")
 			get_tree().change_scene(next_world)
