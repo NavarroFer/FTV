@@ -37,7 +37,7 @@ var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
-onready var Joystick = get_parent().get_node("OGH/Joystick/Joystick_Button")
+onready var Joystick = get_parent().get_node("OGH/Joystick/Joystick/Joystick_Button")
 onready var Button_Jump = get_parent().get_node("OGH/Saltar")
 onready var Button_Shot = get_parent().get_node("OGH/Disparar")
 onready var Button_Action = get_parent().get_node("OGH/Action")
@@ -70,7 +70,7 @@ func _physics_process(delta):
 		motion.y += GRAVITY
 		var friction = false		
 		#if Input.is_action_pressed("move_r"):
-		if Joystick.get_value() > 0:
+		if Joystick.get_value() > 0 or Input.is_action_pressed("move_r"):
 			motion.x = min (motion.x+ACCELERATION,max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = false;
@@ -84,7 +84,7 @@ func _physics_process(delta):
 				rigth_signal = true
 				emit_signal("moved_rigth")
 		#elif Input.is_action_pressed("move_l"):
-		elif Joystick.get_value() < 0:
+		elif Joystick.get_value() < 0 or Input.is_action_pressed("move_l"):
 			motion.x = max (motion.x-ACCELERATION,-max_speed)
 			if is_atacking == false:			
 				$Sprite2.flip_h = true;
@@ -106,7 +106,7 @@ func _physics_process(delta):
 			friction = true
 	
 		if is_on_floor():
-			if Button_Jump.is_pressed():
+			if Button_Jump.is_pressed() or Input.is_action_pressed("move_up"):
 				motion.y = -JUMP
 				if(!jump_signal && position.x > 1200):
 					jump_signal = true
@@ -130,7 +130,11 @@ func _physics_process(delta):
 	
 		motion = move_and_slide(motion,UP)
 		
-		if Button_Shot.is_pressed() && is_atacking == false:
+<<<<<<< HEAD
+		if (Input.is_action_pressed("Shoot") or Button_Shot.is_pressed()) && is_atacking == false:
+=======
+		if Input.is_action_pressed("Shoot") or Button_Shot.is_pressed() && is_atacking == false :
+>>>>>>> b49f3a06ee9c98ab42f95451f9883815f77f0f81
 			if(!shoot_signal && position.x > 1700):
 				shoot_signal = true
 				emit_signal("moved_shoot")
@@ -143,16 +147,18 @@ func _physics_process(delta):
 				$Animacion.play("Shoot")
 			var shot = SHOT.instance()	
 			if sign($Position2D.position.x) == 1:
-				shot.init(1,damage_player,SPEED_SHOT,0)
+#				shot.init(1,damage_player,SPEED_SHOT,0)
+				shot.initAngle(SPEED_SHOT,0)
 			else:
-				shot.init(1,damage_player,-SPEED_SHOT,0)
+#				shot.init(1,damage_player,-SPEED_SHOT,0)
+				shot.initAngle(-SPEED_SHOT,0)
 			get_parent().add_child(shot)
 			shot.position = $Position2D.global_position
 		if get_slide_count() > 0:			
 			for i in range (get_slide_count()):
 				if "Enemy" in get_slide_collision(i).collider.name:
 					hp_decrease(get_slide_collision(i).collider.getDamage())
-	if(Button_Action.is_pressed() && has_item_picked == true):
+	if((Button_Action.is_pressed() or Input.is_action_pressed("Action")) && has_item_picked == true):
 		emit_signal("item_actived",current_power_up,time_power_up)
 		active_power_up()
 		has_item_picked = false
@@ -269,9 +275,9 @@ func _on_Disparar_action():
 		$Animacion.play("Shoot")
 	var shot = SHOT.instance()	
 	if sign($Position2D.position.x) == 1:
-		shot.init(1,damage_player,SPEED_SHOT,0)
+		shot.initAngle(SPEED_SHOT,0)
 	else:
-		shot.init(1,damage_player,-SPEED_SHOT,0)
+		shot.initAngle(-SPEED_SHOT,0)
 	get_parent().add_child(shot)
 	shot.position = $Position2D.global_position
 

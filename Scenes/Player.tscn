@@ -278,7 +278,7 @@ shape = SubResource( 12 )
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 110.14, -130 )
 current = true
-zoom = Vector2( 0.55, 0.55 )
+zoom = Vector2( 0.6, 0.6 )
 limit_bottom = 600
 smoothing_speed = 15.0
 
@@ -290,7 +290,7 @@ scale = Vector2( 1.35369, 1.35369 )
 texture = ExtResource( 66 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 25.49, 6.29 )
+position = Vector2( 30.4606, 6.29 )
 scale = Vector2( 1, 0.53 )
 
 [node name="Timer" type="Timer" parent="."]

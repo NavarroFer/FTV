@@ -1,14 +1,17 @@
 extends KinematicBody2D
 
-export (int) var gravity
+var gravity
 export (int) var speed
-export (int) var damage
+var damage
 const FLOOR = Vector2(0,-1)
 
+var health
 var vel = Vector2()
 var direction = 1
 var is_dead = false
 var timer
+
+signal enemy_dead
 
 func _ready():	
 	timer = Timer.new()
@@ -20,6 +23,10 @@ func _ready():
 
 func dead():
 	is_dead = true
+	var array = filename.split("/",true,3)
+	var subString = array[3]
+	var array2 = str(array[3]).split(".",true,1)
+	emit_signal("enemy_dead",str(array2[0]))
 	vel = Vector2(0,0)
 	$CollisionShape2D.queue_free()
 	$AnimatedSprite.play("Dead")	
@@ -54,4 +61,20 @@ func _on_Timer_timeout():
 func getDamage():
 	return damage
 
+func setDamage(new_amount):
+	damage = new_amount
 
+func getHealth():
+	return health
+
+func setHealth(new_amount):
+	health = new_amount
+
+func getGravity():
+	return gravity
+
+func setGravity(new_amount):
+	gravity = new_amount
+
+func getDirection():
+	return direction

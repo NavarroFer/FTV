@@ -1,8 +1,8 @@
 extends Node
 
-const PUNTOS_1 = 100
-const PUNTOS_2 = 500
-const PUNTOS_3 = 700
+const PUNTOS_1 = 1000
+const PUNTOS_2 = 2000
+const PUNTOS_3 = 3000
 
 var points = 0
 var cantEstrellas
@@ -20,17 +20,13 @@ func level_completed():
 	showMenuLevelComplete(cantEstrellas)
 	
 func showMenuLevelComplete(cantEstrellas):
-	print("Hiciste "+ str(points) + " puntos!")
-	print("Tu resultado fue de " + str(cantEstrellas) + " estrellas!")
 	#$MenuLevelComplete.show(cantEstrellas,points)
 	pass
 
-func enemyKilled(name):
-	match name:
-		"EnemyA":
-			setPoints(getPoints()+100)
-		"EnemyB":
-			setPoints(getPoints()+200)
+func enemyKilled(tipo):
+	match tipo:
+		"EnemyA": setPoints(getPoints()+100)
+		"EnemyB": setPoints(getPoints()+200)
 
 func setPoints(new_amount):
 	points = new_amount

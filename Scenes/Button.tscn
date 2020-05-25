@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://Src/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShootP.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/ButtonC.gd" type="Script" id=4]
+
+<<<<<<< HEAD
+[node name="Control" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TouchScreenButton" parent="."]
+=======
 
 [node name="Button" type="TouchScreenButton"]
+>>>>>>> b49f3a06ee9c98ab42f95451f9883815f77f0f81
 normal = ExtResource( 2 )
 pressed = ExtResource( 3 )
 script = ExtResource( 1 )
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="action" from="Button" to="." method="_on_Button_action"]
+[connection signal="jump" from="Button" to="." method="_on_Button_jump"]
+[connection signal="pressed" from="Button" to="Button" method="_on_Button_pressed"]
+[connection signal="shot" from="Button" to="." method="_on_Button_shot"]
