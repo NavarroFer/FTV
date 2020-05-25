@@ -53,7 +53,6 @@ signal armor_change(armor)
 signal item_actived
 signal item_picked
 
-
 func _ready():	
 	motion.x = 0
 	motion.y = 0	

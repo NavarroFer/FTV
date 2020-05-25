@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/VirtualJoystickPack/SmallHandleFilledGrey.png" type="Texture" id=4]
 [ext_resource path="res://Src/Joystick.gd" type="Script" id=5]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
 signal move_rigth
@@ -23,13 +23,13 @@ func _on_Joystick_move_rigth():
 	emit_signal(\"move_rigth\")
 "
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 50.0
 
 [node name="Control" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
-script = SubResource( 2 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,9 +41,9 @@ script = ExtResource( 5 )
 [node name="Joystick_Button" type="TouchScreenButton" parent="Joystick"]
 normal = ExtResource( 4 )
 pressed = ExtResource( 2 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 script = ExtResource( 3 )
-[connection signal="idle" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_idle"]
-[connection signal="move_left" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_move_left"]
-[connection signal="move_rigth" from="Joystick/Joystick_Button" to="Joystick" method="_on_Joystick_Button_move_rigth"]
+[connection signal="idle" from="Joystick" to="." method="_on_Joystick_idle"]
+[connection signal="move_left" from="Joystick" to="." method="_on_Joystick_move_left"]
+[connection signal="move_rigth" from="Joystick" to="." method="_on_Joystick_move_rigth"]
 [connection signal="released" from="Joystick/Joystick_Button" to="Joystick/Joystick_Button" method="_on_Joystick_Button_released"]

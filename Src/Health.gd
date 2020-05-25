@@ -2,7 +2,6 @@ extends Node
 
 signal max_changed(new_max)
 signal changed(new_amount)
-signal depleted()
 
 #SETGET fuerza a que pases por los metodos "set_max" y "set_current"
 export (int) var max_amount = 100 setget set_max

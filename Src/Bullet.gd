@@ -87,8 +87,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_TimerTiempoBala_timeout():
 	queue_free()
 	
-func _on_Bullet_body_entered(body):
-	pass
 
 func _on_body_entered(body):
 	#Disparo el player a un enemigo normal

@@ -8,9 +8,6 @@ var threshold = 10
 var center = (Vector2(0,0) - radius ) - position
 var mov = 0
 
-signal move_rigth
-signal move_left
-signal idle
 
 func _ready():
 	position.x = -50
@@ -45,8 +42,6 @@ func _input(event):
 
 func get_value():
 	return mov
-
-
 
 
 func _on_Joystick_Button_released():
