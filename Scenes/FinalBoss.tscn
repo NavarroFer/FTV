@@ -105,6 +105,7 @@ damping = 10.0
 color_ramp = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2( 4.23054, 4.23054 )
 shape = SubResource( 3 )
 
