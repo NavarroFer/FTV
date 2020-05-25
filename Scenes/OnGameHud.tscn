@@ -41,7 +41,7 @@ anchor_left = 0.13
 anchor_top = 0.806
 anchor_right = 0.14
 anchor_bottom = 0.828
-rect_scale = Vector2( 0.8, 0.8 )
+rect_scale = Vector2( 0.75, 0.75 )
 
 [node name="Pause" type="Button" parent="."]
 anchor_left = 0.9
