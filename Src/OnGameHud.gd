@@ -10,25 +10,25 @@ signal move_rigth
 func _ready():	
 	print(get_viewport().size.x)
 	print(get_viewport().size.y)
-	$Saltar.position.y = get_viewport().size.y*0.55
-	$Saltar.position.x = get_viewport().size.x*0.60
-	$Disparar.position.y = get_viewport().size.y*0.55
-	$Disparar.position.x = get_viewport().size.x*0.55
-	$Action.position.y = get_viewport().size.y*0.45
-	$Action.position.x = get_viewport().size.x*0.575
-	
-	$Pause.position.y = get_viewport().size.y*0.02
-	$Pause.position.x = get_viewport().size.x*0.575
-	
-	$Joystick.position.x = get_viewport().size.x*0.07
-	$Joystick.position.y = get_viewport().size.y*0.55
-
-	$HUD/HealthBar.rect_position.x = get_viewport().size.x*0.005
-	$HUD/HealthBar.rect_position.y = get_viewport().size.y*0.02
-	$HUD/ArmorBar.rect_position.x = get_viewport().size.x*0.005
-	$HUD/ArmorBar.rect_position.y = get_viewport().size.y*0.05
-	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.01
-	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.1
+#	$Saltar.position.y = get_viewport().size.y*0.55
+#	$Saltar.position.x = get_viewport().size.x*0.60
+#	$Disparar.position.y = get_viewport().size.y*0.55
+#	$Disparar.position.x = get_viewport().size.x*0.55
+#	$Action.position.y = get_viewport().size.y*0.45
+#	$Action.position.x = get_viewport().size.x*0.575
+#
+#	$Pause.position.y = get_viewport().size.y*0.02
+#	$Pause.position.x = get_viewport().size.x*0.575
+#
+#	$Joystick.position.x = get_viewport().size.x*0.07
+#	$Joystick.position.y = get_viewport().size.y*0.55
+#
+#	$HUD/HealthBar.rect_position.x = get_viewport().size.x*0.005
+#	$HUD/HealthBar.rect_position.y = get_viewport().size.y*0.02
+#	$HUD/ArmorBar.rect_position.x = get_viewport().size.x*0.005
+#	$HUD/ArmorBar.rect_position.y = get_viewport().size.y*0.05
+#	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.01
+#	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.1
 	pass # Replace with function body.
 
 

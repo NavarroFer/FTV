@@ -17,30 +17,45 @@ margin_bottom = 0.810639
 rect_scale = Vector2( 1.69072, 1.69072 )
 
 [node name="Saltar" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1089.95, 600 )
-scale = Vector2( 0.8, 0.8 )
+anchor_left = 0.9
+anchor_top = 0.84
+anchor_right = 0.9
+anchor_bottom = 0.9
 
 [node name="Disparar" parent="." instance=ExtResource( 8 )]
-position = Vector2( 969.949, 600 )
-scale = Vector2( 0.8, 0.8 )
+anchor_left = 0.79
+anchor_top = 0.84
+anchor_right = 0.8
+anchor_bottom = 0.84
 tipo = 1
 
 [node name="Action" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1029.95, 500 )
-scale = Vector2( 0.8, 0.828 )
+anchor_left = 0.84
+anchor_top = 0.7
+anchor_right = 0.85
+anchor_bottom = 0.75
 tipo = 2
 
 [node name="Joystick" parent="." instance=ExtResource( 9 )]
-position = Vector2( 98.0239, 626.408 )
-scale = Vector2( 0.55328, 0.55328 )
+anchor_left = 0.13
+anchor_top = 0.806
+anchor_right = 0.14
+anchor_bottom = 0.828
+rect_scale = Vector2( 0.8, 0.8 )
 
-[node name="Pause" type="TouchScreenButton" parent="."]
-position = Vector2( 1029.3, 9.01498 )
-scale = Vector2( 0.307921, 0.307921 )
-normal = ExtResource( 2 )
-[connection signal="jump" from="Saltar" to="." method="_on_Saltar_jump"]
-[connection signal="shot" from="Disparar" to="." method="_on_Disparar_shot"]
-[connection signal="action" from="Action" to="." method="_on_Action_action"]
+[node name="Pause" type="Button" parent="."]
+anchor_left = 0.9
+anchor_top = 0.03
+anchor_right = 0.9
+anchor_bottom = 0.03
+margin_right = 12.0
+margin_bottom = 20.0
+rect_scale = Vector2( 0.3, 0.3 )
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="idle" from="Joystick" to="." method="_on_Joystick_idle"]
 [connection signal="move_left" from="Joystick" to="." method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="Joystick" to="." method="_on_Joystick_move_rigth"]
