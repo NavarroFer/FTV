@@ -6,29 +6,17 @@ signal action
 signal idle
 signal move_left
 signal move_rigth
-signal pause
 
 func _ready():	
 	print(get_viewport().size.x)
 	print(get_viewport().size.y)
-#	$Saltar.position.y = get_viewport().size.y*0.85
-#	$Saltar.position.x = get_viewport().size.x*0.91
-#	$Disparar.position.y = get_viewport().size.y*0.85
-#	$Disparar.position.x = get_viewport().size.x*0.83
-#	$Action.position.y = get_viewport().size.y*0.70
-#	$Action.position.x = get_viewport().size.x*0.87
+	$Saltar.position.y = get_viewport().size.y*0.55
+	$Saltar.position.x = get_viewport().size.x*0.60
+	$Disparar.position.y = get_viewport().size.y*0.55
+	$Disparar.position.x = get_viewport().size.x*0.55
+	$Action.position.y = get_viewport().size.y*0.45
+	$Action.position.x = get_viewport().size.x*0.575
 	
-<<<<<<< HEAD:Scenes/OnGameHud.gd
-#	$Joystick.position.x = get_viewport().size.x*0.1
-#	$Joystick.position.y = get_viewport().size.y*0.85	
-	
-#	$HUD/HealthBar.rect_position.x = get_viewport().size.x*0.005
-#	$HUD/HealthBar.rect_position.y = get_viewport().size.y*0.02
-#	$HUD/ArmorBar.rect_position.x = get_viewport().size.x*0.005
-#	$HUD/ArmorBar.rect_position.y = get_viewport().size.y*0.05
-#	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.01
-#	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.1
-=======
 	$Pause.position.y = get_viewport().size.y*0.02
 	$Pause.position.x = get_viewport().size.x*0.575
 	
@@ -41,7 +29,6 @@ func _ready():
 	$HUD/ArmorBar.rect_position.y = get_viewport().size.y*0.05
 	$HUD/TimerItem.rect_position.x = get_viewport().size.x*0.01
 	$HUD/TimerItem.rect_position.y = get_viewport().size.y*0.1
->>>>>>> b49f3a06ee9c98ab42f95451f9883815f77f0f81:Src/OnGameHud.gd
 	pass # Replace with function body.
 
 
@@ -78,11 +65,6 @@ func _on_Joystick_move_left():
 func _on_Joystick_move_rigth():
 	emit_signal("move_rigth")
 
-<<<<<<< HEAD:Scenes/OnGameHud.gd
-func _on_Pause_pressed():
-	emit_signal("pause")
-=======
 
 func _on_PowerUp_item_tutorial():
 	$HUD/TimerItem.resaltar()
->>>>>>> b49f3a06ee9c98ab42f95451f9883815f77f0f81:Src/OnGameHud.gd
