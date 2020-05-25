@@ -7,14 +7,15 @@ const SHOT_P = preload("res://Sprites/VirtualJoystickPack/ButtonShootP.png")
 const ACTION = preload("res://Sprites/VirtualJoystickPack/ButtonAction.png") 
 const ACTION_P = preload("res://Sprites/VirtualJoystickPack/ButtonActionP.png")
 
-var tipo
+export(int) var tipo
 signal jump
 signal shot
 signal action
 
-func setTipo(t):
-	tipo = t
-	
+func _ready():
+	init()
+	pass # 
+
 func init():
 	if tipo == 0:
 		set_texture(JUMP)
