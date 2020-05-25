@@ -6,6 +6,7 @@ signal action
 signal idle
 signal move_left
 signal move_rigth
+signal pause
 
 func _ready():	
 	print(get_viewport().size.x)
@@ -68,3 +69,9 @@ func _on_Joystick_move_rigth():
 
 func _on_PowerUp_item_tutorial():
 	$HUD/TimerItem.resaltar()
+
+
+func _on_Pause_pressed():
+	emit_signal("pause")
+
+

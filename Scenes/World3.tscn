@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
@@ -9,12 +9,18 @@
 [ext_resource path="res://Scenes/OnGameHud.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Src/World3.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=10]
 
 [node name="World3" type="Node"]
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 64, 224 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseScreen" parent="Pause" instance=ExtResource( 10 )]
 
 [node name="OGH" parent="." instance=ExtResource( 7 )]
 
@@ -26,39 +32,30 @@ tile_data = PoolIntArray( -524295, 30, 0, -524294, 30, 0, -524293, 30, 0, -52429
 
 [node name="EnemyA" parent="." instance=ExtResource( 6 )]
 position = Vector2( 434.816, 223.002 )
-gravity = 10
 speed = 100
-damage = 10
 
 [node name="EnemyC" parent="." instance=ExtResource( 4 )]
 position = Vector2( 387.553, 90.224 )
 speed = 80
-damage = 20
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
 visible = false
 
 [node name="EnemyA2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 154.712, 116.034 )
-gravity = 10
 speed = 60
-damage = 30
 
 [node name="EnemyC2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 771.8, 59.775 )
 speed = 60
-damage = 40
 
 [node name="EnemyA3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1022.25, 146.718 )
-gravity = 10
 speed = 80
-damage = 50
 
 [node name="EnemyC3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1395.92, 219.761 )
 speed = 20
-damage = 30
 
 [node name="WorldComplete" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1723.84, 183.638 )
@@ -74,6 +71,7 @@ Tipo = 4
 [connection signal="idle" from="OGH" to="Player" method="_on_Joystick_idle"]
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="OGH" to="Player" method="_on_Joystick_move_rigth"]
+[connection signal="pause" from="OGH" to="Pause/PauseScreen" method="_on_OGH_pause"]
 [connection signal="shot" from="OGH" to="Player" method="_on_Disparar_action"]
 [connection signal="enemy_dead" from="EnemyA" to="." method="enemyKilled"]
 [connection signal="enemy_dead" from="EnemyC" to="." method="enemyKilled"]

@@ -1,15 +1,21 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/FinalBoss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Src/WorldFinal.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/HUD_Boss.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Src/HUD_Boss.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/OnGameHud.tscn" type="PackedScene" id=8]
 
 [node name="WorldFinal" type="Node"]
 script = ExtResource( 4 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseScreen" parent="Pause" instance=ExtResource( 5 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 48 )
@@ -46,5 +52,6 @@ tile_data = PoolIntArray( -720927, -2147483618, 0, -720926, -2147483618, 0, -720
 [connection signal="idle" from="OGH" to="Player" method="_on_Joystick_idle"]
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="OGH" to="Player" method="_on_Joystick_move_rigth"]
+[connection signal="pause" from="OGH" to="Pause/PauseScreen" method="_on_OGH_pause"]
 [connection signal="shot" from="OGH" to="Player" method="_on_Disparar_action"]
 [connection signal="hp_changed" from="FinalBoss" to="OGH_FB/HUD_Boss" method="_on_FinalBoss_hp_changed"]

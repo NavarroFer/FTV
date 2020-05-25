@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonAction.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Keys/JoystickL.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Keys/JoystickR.png" type="Texture" id=10]
 [ext_resource path="res://Src/D.gd" type="Script" id=11]
 [ext_resource path="res://Sprites/Keys/flecha.png" type="Texture" id=12]
@@ -49,9 +50,15 @@ size = 28
 font_data = ExtResource( 17 )
 
 [node name="World" type="Node"]
+pause_mode = 1
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 359.961, 267.437 )
+
+[node name="Pause" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseScreen" parent="Pause" instance=ExtResource( 9 )]
 
 [node name="OGH" parent="." instance=ExtResource( 18 )]
 
@@ -270,6 +277,7 @@ Tipo = 4
 [connection signal="idle" from="OGH" to="Player" method="_on_Joystick_idle"]
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="OGH" to="Player" method="_on_Joystick_move_rigth"]
+[connection signal="pause" from="OGH" to="Pause/PauseScreen" method="_on_OGH_pause"]
 [connection signal="shot" from="OGH" to="Player" method="_on_Disparar_action"]
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]
 [connection signal="item_tutorial" from="PowerUp" to="OGH" method="_on_PowerUp_item_tutorial"]
