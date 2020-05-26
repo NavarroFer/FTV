@@ -6,6 +6,10 @@ const PUNTOS_3 = 700
 
 var points = 0
 var cantEstrellas
+export (int) var tipo = 1
+
+signal level_completed(points)
+signal tutorial_completed
 
 func level_completed():
 	#1 Estrella
@@ -17,6 +21,13 @@ func level_completed():
 	#3 Estrellas
 	else:
 		cantEstrellas = 3
+	#TUTORIAL
+	print(tipo)
+	if(tipo == 0):
+		emit_signal("tutorial_completed")
+	elif(tipo == 1):
+		emit_signal("level_completed",points)
+	
 	showMenuLevelComplete(cantEstrellas)
 	
 func showMenuLevelComplete(cantEstrellas):
@@ -37,3 +48,11 @@ func setPoints(new_amount):
 
 func getPoints():
 	return points
+
+
+func _on_WorldComplete_level_completed():
+	pass # Replace with function body.
+
+
+func _on_WorldComplete_tutorial_completed():
+	pass # Replace with function body.

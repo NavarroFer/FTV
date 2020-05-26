@@ -11,3 +11,7 @@ func _on_OGH_pause():
 func _on_Continue_pressed():
 	get_tree().paused = false
 	visible = false
+
+
+func _on_PlayAgain_pressed():
+	get_tree().reload_current_scene()
