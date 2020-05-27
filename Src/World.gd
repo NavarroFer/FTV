@@ -25,8 +25,12 @@ func level_completed():
 	print(tipo)
 	if(tipo == 0):
 		emit_signal("tutorial_completed")
+	#LEVEL COMUN
 	elif(tipo == 1):
 		emit_signal("level_completed",points)
+	#FINAL BOSS
+	elif(tipo == 2):
+		emit_signal("world_complete",points)
 	
 	showMenuLevelComplete(cantEstrellas)
 	
