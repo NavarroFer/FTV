@@ -16,6 +16,7 @@ script = ExtResource( 4 )
 layer = 100
 
 [node name="PauseScreen" parent="Pause" instance=ExtResource( 5 )]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 48 )
@@ -28,11 +29,15 @@ scale = Vector2( 0.8, 0.8 )
 transform = Transform2D( 0.8, 0, 0, 0.8, 230, 220 )
 
 [node name="HUD_Boss" parent="OGH_FB" instance=ExtResource( 6 )]
-margin_left = 452.5
-margin_top = 1015.0
-margin_right = 452.5
-margin_bottom = 1015.0
-rect_scale = Vector2( 3, 3 )
+anchor_left = 0.328
+anchor_top = 1.0
+anchor_right = 0.361
+anchor_bottom = 1.0
+margin_left = -291.74
+margin_top = -185.0
+margin_right = -291.74
+margin_bottom = -185.0
+rect_scale = Vector2( 1.70314, 1.62971 )
 script = ExtResource( 7 )
 
 [node name="FinalBoss" parent="." instance=ExtResource( 2 )]

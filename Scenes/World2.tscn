@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/LevelComplete.tscn" type="PackedScene" id=11]
 
 [node name="World2" type="Node"]
+pause_mode = 1
 script = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -35,7 +36,7 @@ visible = false
 [node name="OGH" parent="." instance=ExtResource( 6 )]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -301.925, 217.675 )
+position = Vector2( -148.969, 236.23 )
 
 [node name="WorldComplete" parent="." instance=ExtResource( 2 )]
 position = Vector2( 4531.56, 246.735 )
@@ -89,7 +90,6 @@ scale = Vector2( 2.00396, -0.706987 )
 position = Vector2( 537.874, 562.775 )
 scale = Vector2( 2.00396, -0.706987 )
 [connection signal="level_completed" from="." to="CanvasLayer/LevelComplete" method="_on_World2_level_completeds"]
-[connection signal="tutorial_completed" from="." to="WorldComplete" method="_on_World2_tutorial_completed"]
 [connection signal="next_level" from="CanvasLayer/LevelComplete" to="WorldComplete" method="_on_LevelComplete_next_level"]
 [connection signal="idle" from="OGH" to="Player" method="_on_Joystick_idle"]
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]

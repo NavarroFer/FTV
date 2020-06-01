@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Tiles/InsideBodyTileSet.tres" type="TileSet" id=2]
@@ -8,19 +8,27 @@
 [ext_resource path="res://Scenes/EnemyA.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/OnGameHud.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/PowerUp.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Src/World3.gd" type="Script" id=9]
+[ext_resource path="res://Src/World.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/LevelComplete.tscn" type="PackedScene" id=11]
 
 [node name="World3" type="Node"]
+pause_mode = 1
 script = ExtResource( 9 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 224 )
+position = Vector2( 80.9786, 206.896 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelComplete" parent="CanvasLayer" instance=ExtResource( 11 )]
+visible = false
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 100
 
 [node name="PauseScreen" parent="Pause" instance=ExtResource( 10 )]
+visible = false
 
 [node name="OGH" parent="." instance=ExtResource( 7 )]
 
@@ -57,17 +65,19 @@ speed = 80
 position = Vector2( 1395.92, 219.761 )
 speed = 20
 
-[node name="WorldComplete" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1723.84, 183.638 )
-next_world = "res://Scenes/WorldFinal.tscn"
-
 [node name="PowerUp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 22.8552, 163.502 )
 Tipo = 4
+
+[node name="WorldComplete" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1721.48, 183.027 )
+next_world = "res://Scenes/WorldFinal.tscn"
+[connection signal="level_completed" from="." to="CanvasLayer/LevelComplete" method="_on_World2_level_completeds"]
 [connection signal="armor_change" from="Player" to="OGH" method="_on_Player_armor_change"]
 [connection signal="hp_changed" from="Player" to="OGH" method="_on_Player_hp_changed"]
 [connection signal="item_actived" from="Player" to="OGH" method="_on_Player_item_actived"]
 [connection signal="item_picked" from="Player" to="OGH" method="_on_Player_item_picked"]
+[connection signal="next_level" from="CanvasLayer/LevelComplete" to="WorldComplete" method="_on_LevelComplete_next_level"]
 [connection signal="idle" from="OGH" to="Player" method="_on_Joystick_idle"]
 [connection signal="move_left" from="OGH" to="Player" method="_on_Joystick_move_left"]
 [connection signal="move_rigth" from="OGH" to="Player" method="_on_Joystick_move_rigth"]
@@ -79,5 +89,5 @@ Tipo = 4
 [connection signal="enemy_dead" from="EnemyC2" to="." method="enemyKilled"]
 [connection signal="enemy_dead" from="EnemyA3" to="." method="enemyKilled"]
 [connection signal="enemy_dead" from="EnemyC3" to="." method="enemyKilled"]
-[connection signal="level_completed" from="WorldComplete" to="." method="level_completed"]
 [connection signal="body_entered" from="PowerUp" to="PowerUp" method="_on_PowerUp_body_entered"]
+[connection signal="level_completed" from="WorldComplete" to="." method="level_completed"]
