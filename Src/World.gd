@@ -12,6 +12,7 @@ signal level_completed(points)
 signal tutorial_completed
 
 func level_completed():
+	print("AAA")
 	#1 Estrella
 	if(points <= PUNTOS_1):
 		cantEstrellas = 1
@@ -24,12 +25,15 @@ func level_completed():
 	#TUTORIAL
 	print(tipo)
 	if(tipo == 0):
+		print("Nivel tipo tutorial")
 		emit_signal("tutorial_completed")
 	#LEVEL COMUN
 	elif(tipo == 1):
+		print("Nivel tipo normal")
 		emit_signal("level_completed",points)
 	#FINAL BOSS
 	elif(tipo == 2):
+		print("Nivel tipo final")
 		emit_signal("world_complete",points)
 
 	Game.nivel_act+=1
@@ -55,10 +59,3 @@ func setPoints(new_amount):
 func getPoints():
 	return points
 
-
-func _on_WorldComplete_level_completed():
-	pass # Replace with function body.
-
-
-func _on_WorldComplete_tutorial_completed():
-	pass # Replace with function body.

@@ -21,7 +21,3 @@ func change_level():
 
 func _on_LevelComplete_next_level():
 	change_level()
-
-
-func _on_World2_tutorial_completed():
-	change_level()

@@ -62,11 +62,13 @@ position = Vector2( 85.4647, 255.41 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LevelComplete" parent="CanvasLayer" instance=ExtResource( 20 )]
+visible = false
 
 [node name="Pause" type="CanvasLayer" parent="."]
 layer = 100
 
 [node name="PauseScreen" parent="Pause" instance=ExtResource( 9 )]
+visible = false
 
 [node name="OGH" parent="." instance=ExtResource( 18 )]
 
@@ -276,8 +278,8 @@ Tipo = 4
 [connection signal="tutorial_completed" from="." to="CanvasLayer/LevelComplete" method="_on_World_tutorial_completed"]
 [connection signal="armor_change" from="Player" to="OGH" method="_on_Player_armor_change"]
 [connection signal="hp_changed" from="Player" to="OGH" method="_on_Player_hp_changed"]
-[connection signal="item_actived" from="Player" to="OGH" method="_on_Player_item_actived"]
 [connection signal="item_actived" from="Player" to="Keys/K2" method="_on_Player_item_actived"]
+[connection signal="item_actived" from="Player" to="OGH" method="_on_Player_item_actived"]
 [connection signal="item_picked" from="Player" to="OGH" method="_on_Player_item_picked"]
 [connection signal="moved_jump" from="Player" to="Keys/W" method="_on_Player_moved_jump"]
 [connection signal="moved_left" from="Player" to="Keys/A" method="_on_Player_moved_left"]
