@@ -31,7 +31,9 @@ func level_completed():
 	#FINAL BOSS
 	elif(tipo == 2):
 		emit_signal("world_complete",points)
-	
+
+	Game.nivel_act+=1
+	Game._save()
 	showMenuLevelComplete(cantEstrellas)
 	
 func showMenuLevelComplete(cantEstrellas):

@@ -37,6 +37,7 @@ var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
+var skins = [preload("res://Sprites/Player/SSA.png"),preload("res://Sprites/Player/SSA_Blue.png"),preload("res://Sprites/Player/SSA_Green.png"),preload("res://Sprites/Player/SSA_Pink.png")]
 onready var Joystick = get_parent().get_node("OGH/Joystick/Joystick/Joystick_Button")
 onready var Button_Jump = get_parent().get_node("OGH/Saltar")
 onready var Button_Shot = get_parent().get_node("OGH/Disparar")
@@ -53,7 +54,10 @@ signal armor_change(armor)
 signal item_actived
 signal item_picked
 
-func _ready():	
+func _ready():
+	var data = {}
+	data = Saves.load_game()		
+	set_skin(Game.skin)
 	motion.x = 0
 	motion.y = 0	
 	$Health.set_max(100)
@@ -165,6 +169,9 @@ func dead():
 	$Animacion.play("Dead")
 	$CollisionShape2D.disabled = true
 	$Timer.start()		
+	
+func set_skin(selected):
+	$Sprite2.texture = skins[selected-1]
 
 func hp_decrease(damage):
 	if($Timer2.is_stopped()):		

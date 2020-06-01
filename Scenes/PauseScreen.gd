@@ -15,3 +15,9 @@ func _on_Continue_pressed():
 
 func _on_PlayAgain_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_Home_pressed():
+	get_tree().paused = false
+	visible = false
+	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
