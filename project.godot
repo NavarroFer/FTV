@@ -17,7 +17,12 @@ _global_script_class_icons={
 
 config/name="FTV"
 run/main_scene="res://Scenes/TitleScreen.tscn"
-config/icon="res://Sprites/icon.png"
+config/icon="res://Sprites/icon_FTV.png"
+
+[autoload]
+
+Saves="*res://Src/Saves.gd"
+Game="*res://Src/Game.gd"
 
 [display]
 

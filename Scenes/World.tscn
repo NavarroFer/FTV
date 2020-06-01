@@ -57,7 +57,7 @@ script = ExtResource( 21 )
 tipo = 0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 3509.63, 245.815 )
+position = Vector2( 85.4647, 255.41 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
