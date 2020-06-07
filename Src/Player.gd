@@ -37,7 +37,10 @@ var damage_player = DAMAGE_INICIAL
 var current_power_up = 0
 var time_power_up = 0
 var has_item_picked = false
+var shot_type = 3
+var double_jump = false
 var skins = [preload("res://Sprites/Player/SSA.png"),preload("res://Sprites/Player/SSA_Blue.png"),preload("res://Sprites/Player/SSA_Green.png"),preload("res://Sprites/Player/SSA_Pink.png")]
+var cant_saltos
 onready var Joystick = get_parent().get_node("OGH/Joystick/Joystick/Joystick_Button")
 onready var Button_Jump = get_parent().get_node("OGH/Saltar")
 onready var Button_Shot = get_parent().get_node("OGH/Disparar")
@@ -58,16 +61,19 @@ func _ready():
 	var data = {}
 	data = Saves.load_game()		
 	set_skin(Game.skin)
+	
 	motion.x = 0
 	motion.y = 0	
 	$Health.set_max(100)
 	$Health.set_current(HP_INICIAL)
 	$Armor.set_max(100)
 	$Armor.set_current(ARMOR_INICIAL)
+	setupSkills()
 
 
 #MOVEMENT
 func _physics_process(delta):	
+	print($TimerDoubleJump.time_left)
 	if is_dead == false:
 		$CollisionShape2D.disabled = false
 		motion.y += GRAVITY
@@ -109,7 +115,7 @@ func _physics_process(delta):
 			friction = true
 	
 		if is_on_floor():
-			if Button_Jump.is_pressed() or Input.is_action_pressed("move_up"):
+			if Button_Jump.is_pressed() or Input.is_action_pressed("move_up"):				
 				motion.y = -JUMP
 				if(!jump_signal && position.x > 1200):
 					jump_signal = true
@@ -117,6 +123,13 @@ func _physics_process(delta):
 			if friction:
 				motion.x = lerp(motion.x, 0, 0.15)
 		else:
+#			if double_jump == true and $TimerDoubleJump.is_stopped() and (Button_Jump.is_pressed() or Input.is_action_pressed("move_up")):				
+#				$TimerDoubleJump.start()
+#				motion.y = -JUMP				
+#				if(!jump_signal && position.x > 1200):
+#					jump_signal = true
+#					emit_signal("moved_jump")					
+				
 			if is_atacking == false:
 				if motion.y > 0:
 					if(inv == true):
@@ -145,6 +158,7 @@ func _physics_process(delta):
 			else:
 				$Animacion.play("Shoot")
 			var shot = SHOT.instance()	
+			shot.set_type(shot_type);
 			if sign($Position2D.position.x) == 1:
 #				shot.init(1,damage_player,SPEED_SHOT,0)
 				shot.initAngle(SPEED_SHOT,0)
@@ -274,8 +288,8 @@ func _on_Disparar_action():
 	if(inv == true):
 		$Animacion.play("Shoot_INV")
 	else:
-		$Animacion.play("Shoot")
-	var shot = SHOT.instance()	
+		$Animacion.play("Shoot")	
+	var shot = SHOT.instance()
 	if sign($Position2D.position.x) == 1:
 		shot.initAngle(SPEED_SHOT,0)
 	else:
@@ -283,3 +297,16 @@ func _on_Disparar_action():
 	get_parent().add_child(shot)
 	shot.position = $Position2D.global_position
 
+func setupSkills():
+	print(Game.getNivel())
+	match Game.getNivel():
+		#Termino el nivel 1, gana habilidad
+		1: shot_type = 1
+		2: shot_type = 2
+		3: double_jump = true
+		
+
+
+func _on_TimerDoubleJump_timeout():
+	$TimerDoubleJump.stop()
+	cant_saltos = 1

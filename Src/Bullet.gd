@@ -2,6 +2,11 @@ extends Area2D
 
 var vel = Vector2()
 #onready var timer = get_node("TimerTiempoBala")
+var types = [preload("res://Sprites/Player/Objects/balas0.png"),
+preload("res://Sprites/Player/Objects/balas1.png"),
+preload("res://Sprites/Player/Objects/balas2.png"),
+preload("res://Sprites/Player/Objects/balas3.png"),
+preload("res://Sprites/Player/Objects/balas4.png"),]
 var timerBala
 var timerImpact
 var visibilityNotifier
@@ -14,7 +19,6 @@ var damage_Bullet
 func _ready():
 	initTimers()	
 	initTipo()
-	
 	connect("body_entered",self,"_on_body_entered")
 	visibilityNotifier = VisibilityNotifier2D.new()
 	visibilityNotifier.connect("screen_exited",self,"_on_VisibilityNotifier2D_screen_exited")
@@ -41,7 +45,7 @@ func initTimers():
 	timerImpact.start()
 	
 func initTipo():
-	$AnimatedSprite.play("Shot")
+	$AnimationPlayer.play("Shot")
 	damage_Bullet = 30
 
 func initAngle(x,y):
@@ -49,32 +53,24 @@ func initAngle(x,y):
 #	tirador = tipo
 	if x != 0 && y != 0:
 		if sign(x) == -1:
-			$AnimatedSprite.rotate(PI)
-		$AnimatedSprite.rotate(atan(y/x))
+			$Sprite.rotate(PI)
+		$Sprite.rotate(atan(y/x))
 	elif sign(x) == -1:
-		$AnimatedSprite.rotate(PI)
+		$Sprite.rotate(PI)
 	elif sign(y) == -1:
-		$AnimatedSprite.rotate(-PI/2)
+		$Sprite.rotate(-PI/2)
 	elif sign(y) == 1:
-		$AnimatedSprite.rotate(PI/2)
-	
-	
-#	if tirador == 1:
-#		$AnimatedSprite.play("Shot")
-#		$CollisionShape2D.visible = true	
-#	elif tirador == 2:
-#		$AnimatedSprite.play("ShotBoss")
-#		$CollisionShape2D.visible = false	
-#	damage_Bullet = damage
+		$Sprite.rotate(PI/2)
+
 	vel_x = x
 	vel_y = y
 
 func set_bullet_direction(dir):
 	direction = dir
 	if dir == -1:
-		$AnimatedSprite.flip_h = true
+		$Sprite.flip_h = true
 	else:
-		$AnimatedSprite.flip_h = false
+		$Sprite.flip_h = false
 
 func _physics_process(delta):
 	vel.x = vel_x * delta
@@ -87,21 +83,23 @@ func _on_VisibilityNotifier2D_screen_exited():
 func _on_TimerTiempoBala_timeout():
 	queue_free()
 	
+func set_type(t):
+	$Sprite.texture = types[t]
+		
 
 func _on_body_entered(body):
 	#Disparo el player a un enemigo normal
 	if "Enemy" in body.name: #&& tirador == 1:
-		$AnimatedSprite.play("Impact")
+		#$AnimatedSprite.play("Impact")
 		body.dead()	
 		timerImpact.start()
 	elif "FinalBoss" in body.name:# && tirador == 1:
-		$AnimatedSprite.play("Impact")
+		#$AnimatedSprite.play("Impact")
 		body.decrease_health(damage_Bullet)	
 		timerImpact.start()
 	elif "Player" in body.name:# && tirador == 2:
 		#$AnimatedSprite.play("ImpactBoss")
-		body.hp_decrease(damage_Bullet)	
-		print("LE PEGUE AL ROBOT")
+		body.hp_decrease(damage_Bullet)			
 		queue_free()
 	timerImpact.start()
 
