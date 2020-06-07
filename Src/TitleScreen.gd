@@ -19,7 +19,6 @@ func _ready():
 func _on_Start_pressed():	
 	var date = {}
 	date = Saves.load_game()
-#	if(int(date["skin"]) == 0):
 	get_tree().change_scene("res://Scenes/SkinSelector.tscn")
 	Game.setInGame(true)
 	Game.setNivel(0)
