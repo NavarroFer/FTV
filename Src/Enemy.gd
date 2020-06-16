@@ -12,6 +12,7 @@ var is_dead = false
 var timer
 
 signal enemy_dead
+signal enemy_A_dead
 
 func _ready():	
 	timer = Timer.new()
@@ -29,7 +30,8 @@ func dead():
 	emit_signal("enemy_dead",str(array2[0]))
 	vel = Vector2(0,0)
 	$CollisionShape2D.queue_free()
-	$AnimatedSprite.play("Dead")	
+	$AnimatedSprite.play("Dead")
+	emit_signal("enemy_A_dead")	
 	timer.start()
 
 func _physics_process(delta):

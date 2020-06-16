@@ -30,7 +30,7 @@ func set_skin():
 func _on_Button_pressed():
 	#Escribir en un archivo el skin que eligio
 	#para usar en todos los niveles
-	Game.setSkin(selected)	
+	Game.setSkin(selected)		
 	get_tree().change_scene(niveles[int(Game.getNivel())])
 
 func _on_Der_pressed():
