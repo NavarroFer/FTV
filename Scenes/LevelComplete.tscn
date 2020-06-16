@@ -7,7 +7,6 @@
 [ext_resource path="res://Sprites/Fonts/myanmar-text-bold.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Src/LevelComplete.gd" type="Script" id=6]
 
-
 [sub_resource type="DynamicFont" id=1]
 size = 79
 outline_size = 10

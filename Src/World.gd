@@ -11,9 +11,7 @@ export (int) var tipo = 1
 signal level_completed(points)
 signal tutorial_completed
 
-func level_completed():
-	print("AAA")
-	#1 Estrella
+func level_completed():	
 	if(points <= PUNTOS_1):
 		cantEstrellas = 1
 	#2 Estrellas
@@ -22,8 +20,7 @@ func level_completed():
 	#3 Estrellas
 	else:
 		cantEstrellas = 3
-	#TUTORIAL
-	print(tipo)
+	#TUTORIAL	
 	if(tipo == 0):
 		print("Nivel tipo tutorial")
 		emit_signal("tutorial_completed")
@@ -35,12 +32,12 @@ func level_completed():
 	elif(tipo == 2):
 		print("Nivel tipo final")
 		emit_signal("world_complete",points)
-
-	Game.nivel_act+=1
+	Game.setGlobulosBlancos(Game.getGlobulosBlancos()+points)
+	Game.nextLevel()
 	Game._save()
-	showMenuLevelComplete(cantEstrellas)
+	showMenuLevelComplete(cantEstrellas,points)
 	
-func showMenuLevelComplete(cantEstrellas):
+func showMenuLevelComplete(cantEstrellas,points):
 	print("Hiciste "+ str(points) + " puntos!")
 	print("Tu resultado fue de " + str(cantEstrellas) + " estrellas!")
 	#$MenuLevelComplete.show(cantEstrellas,points)
