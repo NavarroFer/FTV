@@ -72,8 +72,7 @@ func _ready():
 
 
 #MOVEMENT
-func _physics_process(delta):	
-	print($TimerDoubleJump.time_left)
+func _physics_process(delta):		
 	if is_dead == false:
 		$CollisionShape2D.disabled = false
 		motion.y += GRAVITY
@@ -298,7 +297,6 @@ func _on_Disparar_action():
 	shot.position = $Position2D.global_position
 
 func setupSkills():
-	print(Game.getNivel())
 	match Game.getNivel():
 		#Termino el nivel 1, gana habilidad
 		1: shot_type = 1

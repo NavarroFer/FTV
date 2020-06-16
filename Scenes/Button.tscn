@@ -3,7 +3,8 @@
 [ext_resource path="res://Src/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShoot.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/VirtualJoystickPack/ButtonShootP.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/ButtonC.gd" type="Script" id=4]
+[ext_resource path="res://Src/ButtonC.gd" type="Script" id=4]
+
 
 [node name="Control" type="Control"]
 margin_right = 40.0
