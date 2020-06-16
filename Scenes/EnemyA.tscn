@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Src/EnemyA.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Enemies/EnemyA/EnemyA.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Sprites/Enemies/EnemyA/EnemyADead.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Enemies/EnemyA/EnemyA1Dead.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Enemies/EnemyA/EnemyA2Dead.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Enemies/EnemyA/silueta0-1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Enemies/EnemyA/silueta0-2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Enemies/EnemyA/silueta0-3.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,6 +26,17 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=2]
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 54.808, 54.808 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ null, ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "silueta",
+"speed": 4.62
+} ]
+
 [node name="EnemyA" type="KinematicBody2D"]
 scale = Vector2( 0.583856, 0.583856 )
 script = ExtResource( 1 )
@@ -35,6 +49,7 @@ animation = "Dead"
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 4.86, 1.386 )
 scale = Vector2( 2.391, 2.525 )
 shape = SubResource( 2 )
@@ -44,3 +59,20 @@ position = Vector2( 30.788, 0 )
 scale = Vector2( 1, 0.924 )
 enabled = true
 cast_to = Vector2( 0, 30.619 )
+
+[node name="AreaProximidad" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaProximidad"]
+visible = false
+position = Vector2( 2.38419e-07, 0 )
+scale = Vector2( 1, 1.01391 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="AreaProximidad"]
+position = Vector2( 5.13825, 1.71275 )
+scale = Vector2( 0.542774, 0.542774 )
+frames = SubResource( 4 )
+animation = "silueta"
+frame = 3
+[connection signal="enemy_A_dead" from="." to="." method="_on_EnemyA_enemy_A_dead"]
+[connection signal="body_entered" from="AreaProximidad" to="." method="_on_AreaProximidad_body_entered"]
