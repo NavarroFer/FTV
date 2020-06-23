@@ -3,7 +3,7 @@ extends Control
 
 const CANT_SKINS = 4
 const MIN_VALUE_SKINS = 1
-var skins = [preload("res://Sprites/Player/SSA.png"),preload("res://Sprites/Player/SSA_Blue.png"),preload("res://Sprites/Player/SSA_Green.png"),preload("res://Sprites/Player/SSA_Pink.png")]
+var skins = [preload("res://Sprites/Interface/skins/run.png"),preload("res://Sprites/Interface/skins/run_blue.png"),preload("res://Sprites/Interface/skins/run_green.png"),preload("res://Sprites/Interface/skins/run_pink.png")]
 var niveles = ["res://Scenes/World.tscn"
 ,"res://Scenes/World2.tscn"
 ,"res://Scenes/World3.tscn"
