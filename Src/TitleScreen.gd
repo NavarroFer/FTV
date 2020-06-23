@@ -34,3 +34,7 @@ func _on_Continue_pressed():
 	var date = {}
 	date = Game._load()
 	get_tree().change_scene(niveles[int(date["nivel"])])
+
+
+func _on_Market_pressed():
+	get_tree().change_scene("res://Scenes/Market.tscn")

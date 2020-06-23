@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/Interface/Play.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Fonts/agency-fb-bold_[allfont.es].ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Sprites/Player/SSA.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Interface/skins/run.png" type="Texture" id=3]
 [ext_resource path="res://Src/SkinSelector.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Interface/flecha siguiente.png" type="Texture" id=5]
 
@@ -16,14 +16,14 @@ loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/Sprite:frame")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 50, 57 ]
+"values": [ 0, 7 ]
 }
 
 [node name="SkinSelector" type="Control"]
@@ -79,9 +79,8 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Control"]
 scale = Vector2( 0.636461, 0.636461 )
 texture = ExtResource( 3 )
-vframes = 9
-hframes = 9
-frame = 57
+vframes = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/walk = SubResource( 2 )

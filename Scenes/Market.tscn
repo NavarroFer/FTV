@@ -1,0 +1,639 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/Market.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Interface/arma3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Interface/arma4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Interface/arma1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Interface/arma2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Fonts/mmrtextb.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Sprites/Fonts/Gumela.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 7 )
+
+[node name="Market" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.572549, 0.0823529, 0.0823529, 1 )
+
+[node name="Back" type="Button" parent="."]
+anchor_left = 0.84
+anchor_top = 0.027
+anchor_right = 0.85
+anchor_bottom = 0.027
+margin_right = 12.0
+margin_bottom = 20.0
+rect_scale = Vector2( 3, 3 )
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 368.0
+custom_fonts/font = SubResource( 1 )
+text = "MARKET"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 128.0
+margin_top = 144.0
+margin_right = 128.0
+margin_bottom = 144.0
+rect_scale = Vector2( 0.802716, 0.802716 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 997.0
+margin_bottom = 1001.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 997.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 1 )
+text = "Guns"
+valign = 2
+
+[node name="Armas" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 157.0
+margin_right = 997.0
+margin_bottom = 331.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_right = 139.0
+margin_bottom = 174.0
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 143.0
+margin_right = 282.0
+margin_bottom = 174.0
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer2"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer2"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 286.0
+margin_right = 425.0
+margin_bottom = 174.0
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer3"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer3"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 429.0
+margin_right = 568.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer4"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer4"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 572.0
+margin_right = 711.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer5"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer5"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 715.0
+margin_right = 854.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer6"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer6"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Armas"]
+margin_left = 858.0
+margin_right = 997.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer7"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Armas/VBoxContainer7"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 335.0
+margin_right = 997.0
+margin_bottom = 488.0
+custom_fonts/font = SubResource( 1 )
+text = "Skills"
+valign = 2
+
+[node name="Habilidades" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 492.0
+margin_right = 997.0
+margin_bottom = 666.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_right = 139.0
+margin_bottom = 174.0
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 143.0
+margin_right = 282.0
+margin_bottom = 174.0
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer2"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer2"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 286.0
+margin_right = 425.0
+margin_bottom = 174.0
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer3"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer3"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 429.0
+margin_right = 568.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer4"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer4"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 572.0
+margin_right = 711.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer5"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer5"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 715.0
+margin_right = 854.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer6"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer6"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Habilidades"]
+margin_left = 858.0
+margin_right = 997.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer7"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Habilidades/VBoxContainer7"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 670.0
+margin_right = 997.0
+margin_bottom = 823.0
+custom_fonts/font = SubResource( 1 )
+text = "Other"
+valign = 2
+
+[node name="Others" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 827.0
+margin_right = 997.0
+margin_bottom = 1001.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_right = 139.0
+margin_bottom = 174.0
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 4 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 143.0
+margin_right = 282.0
+margin_bottom = 174.0
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer2"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 5 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer2"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 286.0
+margin_right = 425.0
+margin_bottom = 174.0
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer3"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 2 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer3"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 429.0
+margin_right = 568.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer4"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer4"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 572.0
+margin_right = 711.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer5"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer5"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 715.0
+margin_right = 854.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer6"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer6"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="VBoxContainer7" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Others"]
+margin_left = 858.0
+margin_right = 997.0
+margin_bottom = 174.0
+
+[node name="Button4" type="Button" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer7"]
+margin_right = 139.0
+margin_bottom = 133.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Others/VBoxContainer7"]
+margin_top = 137.0
+margin_right = 139.0
+margin_bottom = 174.0
+custom_fonts/font = SubResource( 2 )
+text = "500"
+align = 1
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.027
+anchor_top = 0.018
+anchor_right = 0.089
+anchor_bottom = 0.018
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "GR: 2400"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.027
+anchor_top = 0.081
+anchor_right = 0.089
+anchor_bottom = 0.081
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+text = "GB: 120"
+align = 1
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
