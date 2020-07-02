@@ -7,7 +7,7 @@ func _ready():
 	visible = false
 
 func _on_World2_level_completeds(points):
-	$MarginContainer/VBoxContainer/HBoxContainer/Points.text = "Points: " + str(points)
+	$MarginContainer/VBoxContainer/Points.text = "Points: " + str(points)
 	get_tree().paused = true
 	visible = true
 
