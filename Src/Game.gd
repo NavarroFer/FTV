@@ -7,6 +7,7 @@ var globulos_blancos = 0
 var in_game = false
 
 func _ready():
+	_save()
 	_load()
 	
 func _save():
